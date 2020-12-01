@@ -7,7 +7,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
     <h1 style="text-align: center; color: white; font-family: sans-serif;">Simple YouTube Music Player</h1>
     <div class="search" style="width: 640px; margin-left: -320px; margin-top: 25px; position: fixed; left: 50%; display: inline-block;">
-        <input id="search_bar" type="text" placeholder="Enter playlist url" style="height: 30px; width: 80%; float: left; font-size: 20px;"></input>
+        <input id="search_bar" type="text" placeholder="Enter playlist url" style="height: 30px; width: 83%; float: left; font-size: 20px;"></input>
         <button id="search_button" onclick="searchVideo()" style="height: 36px; width: 15%; float: left; font-size: 20px; cursor: pointer;">Search</button>
     </div>
     <!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
@@ -61,6 +61,7 @@
                     'onReady': function (event) {
                         setTimeout(function() {
                             event.target.setShuffle({'shufflePlaylist' : true});
+                            event.target.playVideoAt(0);
                         }, 1000);
                     }
                 }
