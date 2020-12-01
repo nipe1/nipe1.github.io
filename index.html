@@ -7,7 +7,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
     <h1 style="text-align: center; color: white; font-family: sans-serif;">Simple YouTube Music Player</h1>
     <div class="search" style="width: 640px; margin-left: -320px; margin-top: 25px; position: fixed; left: 50%; display: inline-block;">
-        <input id="search_bar" type="text" placeholder="Enter playlist url" style="height: 30px; width: 83%; float: left; font-size: 20px;"></input>
+        <input id="search_bar" type="text" placeholder="Enter playlist/video url" style="height: 30px; width: 83%; float: left; font-size: 20px;"></input>
         <button id="search_button" onclick="searchVideo()" style="height: 36px; width: 15%; float: left; font-size: 20px; cursor: pointer;">Search</button>
         <div class="shuffleCheck" style="float: left; margin-top: 5px;">
           <input type="checkbox" id="shuffle_check" name="Shuffle" checked>
@@ -16,7 +16,7 @@
     </div>
     
     <!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
-    <div id="player" style="position: fixed; top: 50%; left: 50%; margin-top: -292px; margin-left: -480px;"></div>
+    <div id="player" style="position: fixed; left: 50%; margin-top: 100px; margin-left: -480px;"></div>
 
     <script>
       // 2. This code loads the IFrame Player API code asynchronously.
@@ -40,20 +40,26 @@
       }
       function searchVideo() {
         var input;
-        var listId;
+        var listId = null;
+        var videoId = null;
         var p = "list=";
+        var p2 = "watch?v=";
         input = document.getElementById('search_bar').value;
         if(player != undefined){
-            player.destroy();
+          player.destroy();
         }
         if(input.indexOf(p)>=0){
-            listId = input.substring(input.indexOf(p) + 5, input.indexOf(p) + 39);
+          listId = input.substring(input.indexOf(p) + 5, input.indexOf(p) + 39);
         }
-        play(listId);
+        if(input.indexOf(p2)>=0){
+          videoId = input.substring(input.indexOf(p2) + 8, input.indexOf(p2) + 19);
+        }
+        play(listId, videoId);
       }
-      function play(listId){
-        console.log(listId);
-        player = new YT.Player("player", {
+      function play(listId, videoId){
+        console.log(listId + " " + videoId);
+        if(listId != null){
+          player = new YT.Player("player", {
                 height: '585',
                 width: '960',
                 playerVars: {
@@ -73,6 +79,19 @@
                     }
                 }
             });
+        }
+        else{
+          player = new YT.Player("player", {
+                height: '585',
+                width: '960',
+                videoId: videoId,
+                playerVars: {
+                  autoplay: 1,
+                },
+                events: {}
+            });
+        }
+        
       }
     </script>
   </body>
