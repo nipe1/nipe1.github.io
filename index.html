@@ -33,11 +33,14 @@
 
       var done = false;
       var player;
+
       function onPlayerStateChange(event) {
       }
+
       function stopVideo() {
         player.stopVideo();
       }
+
       function searchVideo() {
         var input;
         var listId = null;
@@ -56,6 +59,7 @@
         }
         play(listId, videoId);
       }
+
       function play(listId, videoId){
         console.log(listId + " " + videoId);
         if(listId != null){
@@ -76,6 +80,9 @@
                           }
                           event.target.playVideoAt(0);
                         }, 500);
+                    },
+                    'onError': function () {
+                        player.nextVideo();
                     }
                 }
             });
@@ -88,7 +95,11 @@
                 playerVars: {
                   autoplay: 1,
                 },
-                events: {}
+                events: {
+                  'onError': function () {
+                    player.nextVideo();
+                  }
+                }
             });
         }
         
