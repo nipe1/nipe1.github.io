@@ -1,49 +1,85 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="assets/css/styles.css">
-    <title>My Template</title>
-    <!-- Core CSS, Includes Bootstrap -->
-    <link href="css/styles.css" rel="stylesheet"/>
-  </head>
-  <body>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="assets/css/styles.css">
+        <title>My Template</title>
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
+        <!-- Core CSS, Includes Bootstrap -->
+        <link href="css/styles.css" rel="stylesheet" />
+    </head>
+
     <body class="container-fluid min-vh-100 d-flex flex-column" onload="document.getElementById('main').style.opacity='1'">
-      <!-- Navigation-->
-      <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
-          <div class="container">
-              <a class="navbar-brand" href="#page-top"><img src="assets/img/logo.png" alt="..." /></a>
-          </div>
-      </nav>
-      <!-- Start Scan-->
-      <section class="row flex-grow-1 align-items-center" id="main">
-          <!-- Footer-->
-          <div class="footer py-4 fixed-bottom">
-              <div class="flex-column">
-                  <div class="row align-items-center">
-                      <div class="col-lg-4 text-lg-start text-light">
-                          Copyright &copy; Niilo Pelkonen
-                          <!-- This script automatically adds the current year to your website footer-->
-                          <!-- (credit: https://updateyourfooter.com/)-->
-                          <script>
-                              document.write(new Date().getFullYear());
-                          </script>
-                      </div>
-                      <div class="col-lg-4 my-3 my-lg-0">
-                          <a class="btn btn-primary btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a>
-                          <a class="btn btn-primary btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
-                          <a class="btn btn-primary btn-social mx-2" href="#!"><i class="fab fa-linkedin-in"></i></a>
-                      </div>
-                      <div class="col-lg-4 text-lg-end">
-                          <a class="link-light text-decoration-none me-3" href="#!">Privacy Policy</a>
-                          <a class="link-light text-decoration-none" href="#!">Terms of Use</a>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </section>
-      <!-- Core JS -->
-      <script src="js/scripts.js"></script>
-  </body>
+        <!-- Navigation-->
+        <section class="row text">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <a class="navbar-brand" href="#">Navbar</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active px-4">
+                            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item px-4">
+                            <a class="nav-link" href="#">Link</a>
+                        </li>
+                        <li class="nav-item dropdown px-4">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                Dropdown
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="#">Action</a>
+                                <a class="dropdown-item" href="#">Another action</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Something else here</a>
+                            </div>
+                        </li>
+                    </ul>
+                    <form class="d-flex my-2 my-lg-0 px-4">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    </form>
+                </div>
+            </nav>
+        </section>
+        <!-- Main Page-->
+        <section class="row flex-grow-1 align-items-center" id="main">
+            <div class="container">
+                <!-- <img src="assets/img/banner.png" class="img-fluid" alt="Responsive image"> -->
+            </div>
+            <!-- Footer-->
+            <div class="footer py-4 fixed-bottom">
+                <div class="flex-column">
+                    <div class="row align-items-center">
+                        <div class="col-lg-4 text-lg-start text-dark">
+                            Copyright &copy; Niilo Pelkonen
+                            <!-- This script automatically adds the current year to your website footer-->
+                            <!-- (credit: https://updateyourfooter.com/)-->
+                            <script>
+                                document.write(new Date().getFullYear());
+                            </script>
+                        </div>
+                        <div class="col-lg-4 my-3 my-lg-0 text-lg-center">
+                            <a class="btn btn-primary btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-primary btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-primary btn-social mx-2" href="#!"><i class="fab fa-instagram"></i></a>
+                        </div>
+                        <div class="col-lg-4 text-lg-end">
+                            <a class="link-dark text-decoration-none me-3" href="#!">Privacy Policy</a>
+                            <a class="link-dark text-decoration-none" href="#!">Terms of Use</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+            <!-- Core JS -->
+            <script src="js/scripts.js"></script>
+    </body>
 </html>

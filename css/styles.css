@@ -4058,7 +4058,9 @@ textarea.form-control-lg {
 .navbar-collapse {
   flex-basis: 100%;
   flex-grow: 1;
+  justify-content: center;
   align-items: center;
+  font-size: 1.25rem;
 }
 
 .navbar-toggler {
@@ -4098,6 +4100,8 @@ textarea.form-control-lg {
   max-height: var(--bs-scroll-height, 75vh);
   overflow-y: auto;
 }
+
+
 
 @media (min-width: 576px) {
   .navbar-expand-sm {
@@ -5400,6 +5404,16 @@ textarea.form-control-lg {
 
 .btn-close-white {
   filter: invert(1) grayscale(100%) brightness(200%);
+}
+
+.btn-social {
+  height: 2.5rem;
+  width: 2.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border-radius: 100%;
 }
 
 .toast {
