@@ -5,6 +5,11 @@
  * Copyright 2011-2021 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
+/*!
+* Start Bootstrap - Agency v7.0.10 (https://startbootstrap.com/theme/agency)
+* Copyright 2013-2021 Start Bootstrap
+* Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-agency/blob/master/LICENSE)
+*/
 :root {
   --bs-blue: #0d6efd;
   --bs-indigo: #6610f2;
@@ -28,7 +33,7 @@
   --bs-gray-700: #495057;
   --bs-gray-800: #343a40;
   --bs-gray-900: #212529;
-  --bs-primary: #0d6efd;
+  --bs-primary: #198754;
   --bs-secondary: #6c757d;
   --bs-success: #198754;
   --bs-info: #0dcaf0;
@@ -36,8 +41,9 @@
   --bs-danger: #dc3545;
   --bs-light: #f8f9fa;
   --bs-dark: #212529;
-  --bs-primary-rgb: 13, 110, 253;
+  --bs-primary-rgb: 58, 177, 28;
   --bs-secondary-rgb: 108, 117, 125;
+  --bs-orange-rgb: 253, 126, 20;
   --bs-success-rgb: 25, 135, 84;
   --bs-info-rgb: 13, 202, 240;
   --bs-warning-rgb: 255, 193, 7;
@@ -2242,7 +2248,7 @@ progress {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  border-radius: 0.25rem;
+  border-radius: 0;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 @media (prefers-reduced-motion: reduce) {
@@ -3087,7 +3093,7 @@ textarea.form-control.is-invalid {
   border: 1px solid transparent;
   padding: 0.375rem 0.75rem;
   font-size: 1rem;
-  border-radius: 0.25rem;
+  border-radius: 0;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
     border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
@@ -3113,19 +3119,19 @@ fieldset:disabled .btn {
 
 .btn-primary {
   color: #fff;
-  background-color: #0d6efd;
-  border-color: #0d6efd;
+  background-color: var(--bs-primary);
+  border-color: var(--bs-primary);
 }
 .btn-primary:hover {
   color: #fff;
-  background-color: #0b5ed7;
-  border-color: #0a58ca;
+  background-color: #125e3a;
+  border-color: #125e3a;
 }
 .btn-check:focus + .btn-primary,
 .btn-primary:focus {
   color: #fff;
-  background-color: #0b5ed7;
-  border-color: #0a58ca;
+  background-color: var(--bs-primary);
+  border-color: #125e3a;
   box-shadow: 0 0 0 0.25rem rgba(49, 132, 253, 0.5);
 }
 .btn-check:checked + .btn-primary,
@@ -3134,21 +3140,21 @@ fieldset:disabled .btn {
 .btn-primary.active,
 .show > .btn-primary.dropdown-toggle {
   color: #fff;
-  background-color: #0a58ca;
-  border-color: #0a53be;
+  background-color: var(--bs-primary);
+  border-color: #125e3a;
 }
 .btn-check:checked + .btn-primary:focus,
 .btn-check:active + .btn-primary:focus,
 .btn-primary:active:focus,
 .btn-primary.active:focus,
 .show > .btn-primary.dropdown-toggle:focus {
-  box-shadow: 0 0 0 0.25rem rgba(49, 132, 253, 0.5);
+  box-shadow: 0 0 0 0.25rem rgba(var(--bs-primary-rgb), 0.5);
 }
 .btn-primary:disabled,
 .btn-primary.disabled {
   color: #fff;
-  background-color: #0d6efd;
-  border-color: #0d6efd;
+  background-color: #125e3a;
+  border-color: #125e3a;
 }
 
 .btn-secondary {
@@ -5898,7 +5904,7 @@ fieldset:disabled .btn {
 
 @media (min-width: 576px) {
   .modal-dialog {
-    max-width: 500px;
+    max-width: 80%;
     margin: 1.75rem auto;
   }
 
@@ -11701,8 +11707,10 @@ fieldset:disabled .btn {
   }
   #topNav.navbar-fade .navbar-brand svg,
   #topNav.navbar-fade .navbar-brand img {
-    height: 1.5rem;
+    height: 2.2rem;
+    transition: height 0.3s ease-in-out;
   }
+
   #topNav .navbar-nav .nav-item {
     margin-right: 1rem;
   }
@@ -11849,7 +11857,55 @@ section {
   display: none;
 }
 
+.contact {
+  background: linear-gradient(
+      to top,
+      rgba(var(--bs-dark-rgb), 0.55),
+      rgba(var(--bs-dark-rgb), 0.7)
+    ),
+    url("/assets/img/contact_bg.jpg") no-repeat top center;
+  background-attachment: scroll;
+  background-position: center center;
+  background-size: cover;
+}
+.contact .section-heading {
+  color: #fff;
+}
+.contact form#contactForm .form-group {
+  margin-bottom: 1.5rem;
+}
+.contact form#contactForm .form-group input,
+.contact form#contactForm .form-group textarea {
+  padding: 1rem;
+}
+.contact form#contactForm .form-group input.form-control {
+  height: auto;
+}
+.contact form#contactForm .form-group-textarea {
+  max-height: 10rem;
+  height: 100%;
+}
+.contact form#contactForm .form-group-textarea textarea {
+  height: 100%;
+}
+.contact form#contactForm p.help-block {
+  margin: 0;
+}
+.contact form#contactForm .form-control:focus {
+  border-color: #ffc800;
+  box-shadow: none;
+}
+
 .page-history {
+  background: linear-gradient(
+      to top,
+      rgba(255, 255, 255, 0.75),
+      rgba(255, 255, 255, 0.9)
+    ),
+    url("/assets/img/history_bg.jpg") no-repeat top center;
+  background-attachment: scroll;
+  background-position: center center;
+  background-size: cover;
   padding-top: 10rem;
   padding-bottom: 10rem;
 }
@@ -11867,7 +11923,12 @@ section {
   width: 2px;
   margin-left: -1.5px;
   content: "";
-  background-color: var(--bs-secondary);
+  background: linear-gradient(
+    180deg,
+    rgba(var(--bs-secondary-rgb, 1)) 0%,
+    rgba(var(--bs-secondary-rgb, 1)) 90%,
+    rgba(0, 0, 0, 0) 100%
+  );
 }
 .timeline > li {
   position: relative;
@@ -11901,21 +11962,21 @@ section {
   border-right-width: 14px;
   border-left-width: 0;
 }
-.timeline > li .timeline-image {
+.timeline > li .timeline-dot {
   position: absolute;
   z-index: 100;
-  left: 0;
-  width: 80px;
-  height: 80px;
-  margin-left: 0;
+  left: 40px;
+  width: 26px;
+  height: 26px;
+  margin-left: -13px;
   text-align: center;
   color: white;
-  border: 7px solid #e9ecef;
+  border: 2px solid #e9ecef;
   border-radius: 100%;
   background-color: var(--bs-secondary);
 }
-.timeline > li .timeline-image h4,
-.timeline > li .timeline-image .h4 {
+.timeline > li .timeline-dot h4,
+.timeline > li .timeline-dot .h4 {
   font-size: 10px;
   line-height: 14px;
   margin-top: 12px;
@@ -11968,14 +12029,14 @@ section {
     padding: 0 20px 20px 30px;
     text-align: right;
   }
-  .timeline > li .timeline-image {
+  .timeline > li .timeline-dot {
     left: 50%;
-    width: 100px;
-    height: 100px;
-    margin-left: -50px;
+    width: 50px;
+    height: 50px;
+    margin-left: -26px;
   }
-  .timeline > li .timeline-image h4,
-  .timeline > li .timeline-image .h4 {
+  .timeline > li .timeline-dot h4,
+  .timeline > li .timeline-dot .h4 {
     font-size: 13px;
     line-height: 18px;
     margin-top: 16px;
@@ -11986,54 +12047,34 @@ section {
     text-align: left;
   }
 }
-@media (min-width: 992px) {
-  .timeline > li {
-    min-height: 150px;
-  }
-  .timeline > li .timeline-panel {
-    padding: 0 20px 20px;
-  }
-  .timeline > li .timeline-image {
-    width: 150px;
-    height: 150px;
-    margin-left: -75px;
-  }
-  .timeline > li .timeline-image h4,
-  .timeline > li .timeline-image .h4 {
-    font-size: 18px;
-    line-height: 26px;
-    margin-top: 30px;
-  }
-  .timeline > li.timeline-inverted > .timeline-panel {
-    padding: 0 20px 20px;
+
+.button-footer {
+  position: sticky;
+}
+
+@media (min-width: 768px) {
+  .button-footer {
+    position: fixed;
   }
 }
-@media (min-width: 1200px) {
-  .timeline > li {
-    min-height: 170px;
-  }
-  .timeline > li .timeline-panel {
-    padding: 0 20px 20px 100px;
-  }
-  .timeline > li .timeline-image {
-    width: 170px;
-    height: 170px;
-    margin-left: -85px;
-  }
-  .timeline > li .timeline-image h4,
-  .timeline > li .timeline-image .h4 {
-    margin-top: 40px;
-  }
-  .timeline > li.timeline-inverted > .timeline-panel {
-    padding: 0 100px 20px 20px;
-  }
+
+.close-modal {
+  width: 1.5rem;
+  height: 1.5rem;
+  cursor: pointer;
+  background-color: transparent;
 }
 
 .footer {
   padding: 0;
 }
 .footer .row {
-  padding: 3rem;
+  padding: 2rem;
   background-color: var(--bs-dark);
 }
+.footer-info {
+  padding-left: 7%;
+  padding-right: 7%;
+}
+
 /*# sourceMappingURL=bootstrap.css.map */

@@ -15,7 +15,7 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="topNav">
             <div class="container">
-                <a class="navbar-brand" href="#">Navbar</a>
+                <a class="navbar-brand" href="#"><i class="fas fa-2x fa-leaf"></i></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -51,9 +51,9 @@
         <!-- Masthead/Header-->
         <header class="masthead">
             <div class="container">
-                <div class="masthead-subheading">Ylin</div>
-                <div class="masthead-heading text-uppercase">Keskin</div>
-                <a class="btn btn-primary btn-xl text-uppercase" href="#">Nappi</a>
+                <div class="masthead-subheading">Lorem ipsum dolor sit amet</div>
+                <div class="masthead-heading text-uppercase">Sample Site</div>
+                <a class="btn btn-primary btn-xl text-uppercase" href="#contact">Contact Us!</a>
             </div>
         </header>
 
@@ -69,9 +69,9 @@
                     <div class="col-md-4">
                         <span class="fa-stack fa-4x">
                             <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                            <i class="fas fa-shopping-cart fa-stack-1x fa-inverse"></i>
+                            <i class="fas fa-leaf fa-stack-1x fa-inverse"></i>
                         </span>
-                        <h4 class="my-3 text-light">E-Commerce</h4>
+                        <h4 class="my-3 text-light">Nature</h4>
                         <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mollis est neque, eu euismod odio accumsan et.</p>
                     </div>
                     <div class="col-md-4">
@@ -79,15 +79,15 @@
                             <i class="fas fa-circle fa-stack-2x text-primary"></i>
                             <i class="fas fa-wine-glass-alt fa-stack-1x fa-inverse"></i>
                         </span>
-                        <h4 class="my-3 text-light">Responsive Design</h4>
+                        <h4 class="my-3 text-light">Orange Juice</h4>
                         <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mollis est neque, eu euismod odio accumsan et.</p>
                     </div>
                     <div class="col-md-4">
                         <span class="fa-stack fa-4x">
                             <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                            <i class="fas fa-lock fa-stack-1x fa-inverse"></i>
+                            <i class="fas fa-camera-retro fa-stack-1x fa-inverse"></i>
                         </span>
-                        <h4 class="my-3 text-light">Web Security</h4>
+                        <h4 class="my-3 text-light">Photography</h4>
                         <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mollis est neque, eu euismod odio accumsan et.</p>
                     </div>
                 </div>
@@ -98,9 +98,8 @@
         <section class="gallery">
             <div class="container">
                 <div class="text-center">
-                    <h2 class="section-heading text-uppercase text-dark py-5">Gallery</h2>
+                    <h2 class="section-heading text-uppercase text-dark pb-5">Gallery</h2>
                 </div>
-                <!-- Stack the columns on mobile by making one full-width and the other half-width -->
                 <div class="row">
                     <div class="col-md-9 p-0">
                         <div class="row p-0">
@@ -116,7 +115,7 @@
                             </div>
                             <div class="col-img-2 col-md-4">
                                 <div class="gallery-item">
-                                    <a class="gallery-link" data-bs-toggle="modal" href="#galleryModal1">
+                                    <a class="gallery-link" data-bs-toggle="modal" href="#galleryModal2">
                                         <div class="gallery-hover">
                                             <div class="gallery-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                                         </div>
@@ -126,7 +125,7 @@
                             </div>
                             <div class="col-img-4 col-md-4">
                                 <div class="gallery-item">
-                                    <a class="gallery-link" data-bs-toggle="modal" href="#galleryModal1">
+                                    <a class="gallery-link" data-bs-toggle="modal" href="#galleryModal4">
                                         <div class="gallery-hover">
                                             <div class="gallery-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                                         </div>
@@ -137,7 +136,7 @@
                             </div>
                             <div class="col-img-5 col-md-8">
                                 <div class="gallery-item">
-                                    <a class="gallery-link" data-bs-toggle="modal" href="#galleryModal1">
+                                    <a class="gallery-link" data-bs-toggle="modal" href="#galleryModal5">
                                         <div class="gallery-hover">
                                             <div class="gallery-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                                         </div>
@@ -150,7 +149,7 @@
                     </div>
                     <div class="col-img-3 col-md-3">
                         <div class="gallery-item">
-                            <a class="gallery-link" data-bs-toggle="modal" href="#galleryModal1">
+                            <a class="gallery-link" data-bs-toggle="modal" href="#galleryModal3">
                                 <div class="gallery-hover">
                                     <div class="gallery-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                                 </div>
@@ -206,11 +205,41 @@
             </div>
             
         </section>
+
+        <!-- Contact Form-->
+        <section class="contact" id="contact">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase pb-5">Contact Us!</h2>
+                </div>
+                <form id="contactForm">
+                    <div class="row justify-content-center mb-5">
+                        <div class="col-md-8">
+                            <div class="form-group">
+                                <input class="form-control" name="name" id="name" type="name" placeholder="Your Name *" required="required" />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" name="email" id="email" type="email" placeholder="Your Email *" required="required" />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="form-group form-group-textarea">
+                                <textarea class="form-control" name="message" id="message" type="email" placeholder="Your Message *" required="required"></textarea>
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="text-center"><button class="btn btn-primary btn-xl text-uppercase" id="submitButton" type="submit">Send Message</button></div>
+                        </div>
+                        
+                    </div>
+                </form>
+            </div>
+        </section>
+
         <!-- Footer-->
         <footer class="button-footer py-4 fixed-bottom">
             <div class="flex-column">
                 <div class="row align-items-center">
-                    <div class="my-3 my-lg-0 text-lg-center">
+                    <div class="my-3 my-lg-0 text-center">
                         <a class="btn btn-primary btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a>
                         <a class="btn btn-primary btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
                         <a class="btn btn-primary btn-social mx-2" href="#!"><i class="fab fa-instagram"></i></a>
@@ -220,12 +249,15 @@
         </footer>
         <footer class="footer">
             <div class="row align-items-center">
-                <div class="col-lg text-lg-start text-light">
+                <div class="footer-info col-lg text-lg-start text-light">
                     <h5>Address</h5>
-                    <p>aaaaaaaa</p>
+                    <h6 class="text-muted">1234 5th St.</h6>
+                    <h6 class="text-muted">Example, CA 11111</h6>
                 </div>
-                <div class="col-lg text.text-lg-end text-light">
-                    
+                <div class="footer-info col-lg text-lg-end text-light">
+                    <h5>Contact Information</h5>
+                    <h6 class="text-muted">head@site.com</h6>
+                    <h6 class="text-muted">+111 11111111</h6>
                 </div>
             </div>
             <div class="row align-items-center">
@@ -243,6 +275,59 @@
                 </div>
             </div>
         </footer>
+
+        <!-- Gallery Modals-->
+        <!-- Portfolio item 1 modal popup-->
+        <div class="gallery-modal modal fade" id="galleryModal1" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                    <div class="container">
+                        <div class="row justify-content-end">
+                                <div class="close-modal" data-bs-dismiss="modal"><i class="fas fa-times fa-inverse"></i></div>
+                                <img class="img-fluid mx-auto" src="assets/img/gal_1.jpg" alt="..." />
+                        </div>
+                    </div>
+            </div>
+        </div>
+        <div class="gallery-modal modal fade" id="galleryModal2" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                    <div class="container">
+                        <div class="row justify-content-end">
+                                <div class="close-modal" data-bs-dismiss="modal"><i class="fas fa-times fa-inverse"></i></div>
+                                <img class="img-fluid mx-auto" src="assets/img/gal_2.jpg" alt="..." />
+                        </div>
+                    </div>
+            </div>
+        </div>
+        <div class="gallery-modal modal fade" id="galleryModal3" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                    <div class="container">
+                        <div class="row justify-content-end">
+                                <div class="close-modal" data-bs-dismiss="modal"><i class="fas fa-times fa-inverse"></i></div>
+                                <img class="img-fluid mx-auto" src="assets/img/gal_3.jpg" alt="..." />
+                        </div>
+                    </div>
+            </div>
+        </div>
+        <div class="gallery-modal modal fade" id="galleryModal4" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                    <div class="container">
+                        <div class="row justify-content-end">
+                                <div class="close-modal" data-bs-dismiss="modal"><i class="fas fa-times fa-inverse"></i></div>
+                                <img class="img-fluid mx-auto" src="assets/img/gal_4.jpg" alt="..." />
+                        </div>
+                    </div>
+            </div>
+        </div>
+        <div class="gallery-modal modal fade" id="galleryModal5" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                    <div class="container">
+                        <div class="row justify-content-end">
+                                <div class="close-modal" data-bs-dismiss="modal"><i class="fas fa-times fa-inverse"></i></div>
+                                <img class="img-fluid mx-auto" src="assets/img/gal_5.jpg" alt="..." />
+                        </div>
+                    </div>
+            </div>
+        </div>
 
         <!-- Bootstrap JS-->
         <script src="js/bootstrap.js"></script>
