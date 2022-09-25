@@ -154,8 +154,9 @@
       }
 
       function handle( req2 ){
-        if (req2.explicitOriginalTarget.readyState == XMLHttpRequest.DONE) {
-          obj2 = JSON.parse(req2.explicitOriginalTarget.responseText);
+        //if (req2.explicitOriginalTarget.readyState == XMLHttpRequest.DONE) {
+        if (req2.readyState == XMLHttpRequest.DONE) {
+          obj2 = JSON.parse(req2.responseText);
           for(var i=0; i<=obj2.items.length-1; i++){
             videoList.push(obj2.items[i].snippet.resourceId.videoId);
           }
