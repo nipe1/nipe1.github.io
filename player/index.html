@@ -17,8 +17,8 @@
         </div>
     </div>
     <div style="padding-top: 2rem; margin: auto; display: flex; justify-content: center;">
-      <button id="prev_button" onclick="prevVideo()" style="height: 36px; width: 36px; font-size: 20px; cursor: pointer; border-radius: 50%; margin: 4px; visibility: hidden;">⏮</button>
-      <button id="next_button" onclick="nextVideo()" style="height: 36px; width: 36px; font-size: 20px; cursor: pointer; border-radius: 50%; margin: 4px; visibility: hidden;">⏭</button>
+      <button id="prev_button" onclick="prevVideo()" style="height: 36px; width: 36px; font-size: 20px; cursor: pointer; border-radius: 50%; margin: 4px; visibility: hidden;"><</button>
+      <button id="next_button" onclick="nextVideo()" style="height: 36px; width: 36px; font-size: 20px; cursor: pointer; border-radius: 50%; margin: 4px; visibility: hidden;">></button>
     </div>
     
     <!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
@@ -155,8 +155,8 @@
 
       function handle( req2 ){
         //if (req2.explicitOriginalTarget.readyState == XMLHttpRequest.DONE) {
-        if (req2.readyState == XMLHttpRequest.DONE) {
-          obj2 = JSON.parse(req2.responseText);
+        if (req2.currentTarget.readyState == XMLHttpRequest.DONE) {
+          obj2 = JSON.parse(req2.currentTarget.responseText);
           for(var i=0; i<=obj2.items.length-1; i++){
             videoList.push(obj2.items[i].snippet.resourceId.videoId);
           }
