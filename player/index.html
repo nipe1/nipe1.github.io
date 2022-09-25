@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Music Player</title>
+  </head>
+  <body style="background-color: #282828;">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+    <h1 style="text-align: center; color: white; font-family: sans-serif;">Simple YouTube Music Player</h1>
+    <div class="search" style="width: 30%; margin: auto; display: flex; flex-wrap: wrap">
+      <div style="width:100%;">
+        <input id="search_bar" type="text" placeholder="Enter playlist/video url" style="height: 30px; width: 83%; float: left; font-size: 20px;"></input>
+        <button id="search_button" onclick="searchVideo()" style="height: 36px; width: 15%; float: left; font-size: 20px; cursor: pointer;">Search</button>
+      </div>
+        <div class="shuffleCheck" style="padding-top: 1rem;">
+          <input type="checkbox" id="shuffle_check" name="Shuffle" checked>
+          <label for="shuffle_check" style="font-family: sans-serif; color: white;">Shuffle</label>
+        </div>
+    </div>
+    <div style="padding-top: 2rem; margin: auto; display: flex; justify-content: center;">
+      <button id="prev_button" onclick="prevVideo()" style="height: 36px; width: 36px; font-size: 20px; cursor: pointer; border-radius: 50%; margin: 4px; visibility: hidden;">⏮</button>
+      <button id="next_button" onclick="nextVideo()" style="height: 36px; width: 36px; font-size: 20px; cursor: pointer; border-radius: 50%; margin: 4px; visibility: hidden;">⏭</button>
+    </div>
+    
+    <!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
+    <div id="player" style="position: fixed; left: 50%; margin-left: -480px; padding-top: 2rem;"></div>
+
+    <script>
+      // 2. This code loads the IFrame Player API code asynchronously.
+      var tag = document.createElement('script');
+      var checkbox = document.getElementById("shuffle_check");
+
+      tag.src = "https://www.youtube.com/iframe_api";
+      var firstScriptTag = document.getElementsByTagName('script')[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+      function onPlayerReady(event) {
+        event.target.playVideo();
+      }
+
+      var done = false;
+      var player;
+      var url;
+      var obj;
+      var obj2;
+      var nptCheck;
+      var nptCheckOld;
+      var videoList = [];
+      var videoIndex;
+
+      function onPlayerStateChange(event) {
+      }
+
+      function stopVideo() {
+        player.stopVideo();
+      }
+
+      function searchVideo() {
+        var input;
+        var listId = null;
+        var videoId = null;
+        var p = "list=";
+        var p2 = "watch?v=";
+        
+        input = document.getElementById('search_bar').value;
+        if(player != undefined){
+          player.destroy();
+        }
+        if(input.indexOf(p)>=0){
+          listId = input.substring(input.indexOf(p) + 5, input.indexOf(p) + 39);
+          playList(listId);
+        }
+        if(input.indexOf(p2)>=0){
+          videoId = input.substring(input.indexOf(p2) + 8, input.indexOf(p2) + 19);
+          playVideo(videoId);
+        }
+      }
+
+      function playVideo(videoId){
+        player = new YT.Player("player", {
+                height: '585',
+                width: '960',
+                videoId: videoId,
+                playerVars: {
+                  autoplay: 1,
+                },
+                events: {
+                  'onError': function () {
+                    nextVideo();
+                  },
+                  onStateChange: onPlayerStateChange
+                }
+            });
+            saveToHistory(videoId);
+            document.getElementById("prev_button").style.visibility = "visible";
+            document.getElementById("next_button").style.visibility = "visible";
+      }
+
+      function onPlayerStateChange(event) {        
+        if(event.data === 0) {          
+          nextVideo();
+        }
+      }
+
+      function saveToHistory(historyIndex){
+        if(JSON.parse(localStorage.getItem("historyArray")) != null){
+          var historyArray = JSON.parse(localStorage.getItem("historyArray"));
+          }
+          else{
+            var historyArray = [];
+          }
+          historyArray.push(historyIndex);
+          localStorage.setItem("historyArray", JSON.stringify(historyArray));
+      }
+
+      function nextVideo(){
+        if(videoIndex < videoList.length - 1){
+          videoIndex++;
+          player.loadVideoById(videoList[videoIndex]);
+          saveToHistory(videoList[videoIndex]);
+          }
+      }
+
+      function prevVideo(){
+        if(videoIndex > 0){
+          videoIndex--;
+          player.loadVideoById(videoList[videoIndex]);
+          saveToHistory(videoList[videoIndex]);
+        }
+      }
+
+      function playList(listId){
+        videoList = [];
+
+        url = "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet%2C+id&maxResults=50&playlistId=" + listId + "&key=AIzaSyCGBj6VuPFdheunjBrLGRQMbOYcI-4WW2g";
+        console.log(listId);
+        var req = new XMLHttpRequest();
+        req.onreadystatechange = function() {
+            if (req.readyState == XMLHttpRequest.DONE) {
+              obj = JSON.parse(req.response);
+              console.log(obj.items[0].snippet.resourceId.videoId);
+              console.log(obj.items.length);
+              for(var i=0; i<=obj.items.length-1; i++){
+                videoList.push(obj.items[i].snippet.resourceId.videoId);
+              }
+              console.log(videoList);
+              nptCheck = obj.nextPageToken;
+              nptCheckOld = nptCheck;
+              console.log(nptCheck);
+              sendRequest();
+            }
+        }
+        req.open('GET', url, true);
+        req.send(null);
+      }
+
+      function handle( req2 ){
+        if (req2.explicitOriginalTarget.readyState == XMLHttpRequest.DONE) {
+          obj2 = JSON.parse(req2.explicitOriginalTarget.responseText);
+          for(var i=0; i<=obj2.items.length-1; i++){
+            videoList.push(obj2.items[i].snippet.resourceId.videoId);
+          }
+          nptCheck = obj2.nextPageToken;
+          console.log(videoList.length);
+          if( nptCheck !== undefined && nptCheck != nptCheckOld ) {
+            nptCheckOld = nptCheck;
+            sendRequest();
+          }
+          else{
+            videoManager();
+          }
+        }
+      }
+
+      function sendRequest(){
+          url2 = url + "&pageToken=" + nptCheck;
+          var req2 = new XMLHttpRequest();
+          req2.open('GET', url2, true);
+          //req2.setRequestHeader("Content-Type", "text/xml");
+          req2.onreadystatechange = handle;
+          req2.send(null);
+      }
+
+      function smartShuffle(videoList){
+        var x;
+        var weightedArray = [];
+
+        if(JSON.parse(localStorage.getItem("historyArray")) != null){
+          var historyArray = JSON.parse(localStorage.getItem("historyArray"));
+        }
+        else{
+          var historyArray = [];
+        }
+
+        var difference = historyArray.filter(x => !videoList.includes(x));
+        for(var i=0;i<difference.length;i++){
+          historyArray = arr.filter(e => e !== difference[i]); // Removing the unrelated ids from historyArray
+        }
+
+        var combinedArray = [...new Set(historyArray.concat(videoList))]; // Combining the arrays and removing duplicates
+
+        for(var i=0;i<combinedArray.length;i++){
+            x = Math.round(i / (combinedArray.length/10) - 0.5);
+            if(i > historyArray.length){
+              x = 10;
+            }
+
+            for(var j=0;j<=x+10;j++){
+              weightedArray.push(combinedArray[i]);
+            }
+        }
+
+        for (var i = weightedArray.length - 1; i > 0; i--) {  //Randomizing the correctly weighted array
+          const j = Math.floor(Math.random() * (i + 1));      //by using The Fisher-Yates algorithm
+          const temp = weightedArray[i];
+          weightedArray[i] = weightedArray[j];
+          weightedArray[j] = temp;
+        }
+
+        return [...new Set(weightedArray)];
+      }
+
+      function videoManager(){
+        videoIndex = 0;
+        videoList = smartShuffle(videoList);
+
+        console.log(videoList);
+
+        playVideo(videoList[videoIndex]);
+      }
+    </script>
+  </body>
+</html>
