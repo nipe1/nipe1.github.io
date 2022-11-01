@@ -194,7 +194,7 @@
 
         var difference = historyArray.filter(x => !videoList.includes(x));
         for(var i=0;i<difference.length;i++){
-          historyArray = arr.filter(e => e !== difference[i]); // Removing the unrelated ids from historyArray
+          historyArray = historyArray.filter(e => e !== difference[i]); // Removing the unrelated ids from historyArray
         }
 
         var combinedArray = [...new Set(historyArray.concat(videoList))]; // Combining the arrays and removing duplicates
