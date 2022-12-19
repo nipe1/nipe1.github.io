@@ -144,9 +144,11 @@
               }
               console.log(videoList);
               nptCheck = obj.nextPageToken;
-              nptCheckOld = nptCheck;
-              console.log(nptCheck);
-              sendRequest();
+              if(nptCheck != undefined){
+                nptCheckOld = nptCheck;
+                console.log(nptCheck);
+                sendRequest();
+              }
             }
         }
         req.open('GET', url, true);
