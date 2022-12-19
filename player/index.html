@@ -144,10 +144,13 @@
               }
               console.log(videoList);
               nptCheck = obj.nextPageToken;
-              if(nptCheck != undefined){
+              if(nptCheck !== undefined){
+                sendRequest();
                 nptCheckOld = nptCheck;
                 console.log(nptCheck);
-                sendRequest();
+              }
+              else{
+                videoManager();
               }
             }
         }
