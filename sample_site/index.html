@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>My Template</title>
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
+        <!-- Core CSS, Includes Bootstrap -->
+        <link href="css/styles.css" rel="stylesheet"/>
+    </head>
+
+    <body class="container-fluid p-0 min-vh-100 d-flex flex-column">
+        
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="topNav">
+            <div class="container">
+                <a class="navbar-brand" href="#"><i class="fas fa-2x fa-leaf"></i></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav mr-auto my-3">
+                        <li class="nav-item active px-4">
+                            <a class="nav-link" href="">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item px-4">
+                            <a class="nav-link" href="history.html">Our Story</a>
+                        </li>
+                        <li class="nav-item dropdown px-4">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                Dropdown
+                            </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
+                    </li>
+                        <form class="d-flex my-2 my-lg-0 px-4">
+                            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-success my-2/ my-sm-0" type="submit">Search</button>
+                        </form>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Masthead/Header-->
+        <header class="masthead">
+            <div class="container">
+                <div class="masthead-subheading">Lorem ipsum dolor sit amet</div>
+                <div class="masthead-heading text-uppercase">Sample Site</div>
+                <a class="btn btn-primary btn-xl text-uppercase" href="#contact">Contact Us!</a>
+            </div>
+        </header>
+
+        <!-- What We Do-->
+        <section class="page-aboutus">
+            <div class="container p-0">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase text-light">What We Do</h2>
+                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h3>
+                </div>
+                </div>
+                <div class="row text-center">
+                    <div class="col-md-4">
+                        <span class="fa-stack fa-4x">
+                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fas fa-leaf fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <h4 class="my-3 text-light">Nature</h4>
+                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mollis est neque, eu euismod odio accumsan et.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <span class="fa-stack fa-4x">
+                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fas fa-wine-glass-alt fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <h4 class="my-3 text-light">Orange Juice</h4>
+                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mollis est neque, eu euismod odio accumsan et.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <span class="fa-stack fa-4x">
+                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fas fa-camera-retro fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <h4 class="my-3 text-light">Photography</h4>
+                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mollis est neque, eu euismod odio accumsan et.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery-->
+        <section class="gallery">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase text-dark pb-5">Gallery</h2>
+                </div>
+                <div class="row">
+                    <div class="col-md-9 p-0">
+                        <div class="row p-0">
+                            <div class="col-img-1 col-md-8">
+                                <div class="gallery-item">
+                                    <a class="gallery-link" data-bs-toggle="modal" href="#galleryModal1">
+                                        <div class="gallery-hover">
+                                            <div class="gallery-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                        </div>
+                                        <img src="assets/img/gal_1.jpg" class="img-fluid" alt="pic 1">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-img-2 col-md-4">
+                                <div class="gallery-item">
+                                    <a class="gallery-link" data-bs-toggle="modal" href="#galleryModal2">
+                                        <div class="gallery-hover">
+                                            <div class="gallery-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                        </div>
+                                        <img src="assets/img/gal_2.jpg" class="img-fluid" alt="pic 2">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-img-4 col-md-4">
+                                <div class="gallery-item">
+                                    <a class="gallery-link" data-bs-toggle="modal" href="#galleryModal4">
+                                        <div class="gallery-hover">
+                                            <div class="gallery-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                        </div>
+                                        <img src="assets/img/gal_4.jpg" class="img-fluid" alt="pic 4">
+                                    </a>
+                                </div>
+
+                            </div>
+                            <div class="col-img-5 col-md-8">
+                                <div class="gallery-item">
+                                    <a class="gallery-link" data-bs-toggle="modal" href="#galleryModal5">
+                                        <div class="gallery-hover">
+                                            <div class="gallery-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                        </div>
+                                        <img src="assets/img/gal_5.jpg" class="img-fluid" alt="pic 5">
+                                    </a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-img-3 col-md-3">
+                        <div class="gallery-item">
+                            <a class="gallery-link" data-bs-toggle="modal" href="#galleryModal3">
+                                <div class="gallery-hover">
+                                    <div class="gallery-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                </div>
+                                <img src="assets/img/gal_3.jpg" class="img-fluid" alt="pic 3">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Carousel-->
+        <section class="row flex-grow-1 align-items-center my-0" id="carousel">
+            <div id="topCarousel" class="carousel slide" data-bs-ride="carousel">
+                <!-- Carousel indicators -->
+                <ol class="carousel-indicators">
+                    <li data-bs-target="#topCarousel" data-bs-slide-to="0" class="active"></li>
+                    <li data-bs-target="#topCarousel" data-bs-slide-to="1"></li>
+                    <li data-bs-target="#topCarousel" data-bs-slide-to="2"></li>
+                </ol>
+            
+                <!-- Wrapper for carousel items -->
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="assets/img/gal_1.jpg" class="d-block w-100" alt="Slide 1">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>...</h5>
+                            <p>...</p>
+                          </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="assets/img/gal_2.jpg" class="d-block w-100" alt="Slide 2">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>...</h5>
+                            <p>...</p>
+                          </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="assets/img/gal_4.jpg" class="d-block w-100" alt="Slide 3">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>...</h5>
+                            <p>...</p>
+                          </div>
+                    </div>
+                </div>
+            
+                <!-- Carousel controls -->
+                <a class="carousel-control-prev" href="#topCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </a>
+                <a class="carousel-control-next" href="#topCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </a>
+            </div>
+            
+        </section>
+
+        <!-- Contact Form-->
+        <section class="contact" id="contact">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase pb-5">Contact Us!</h2>
+                </div>
+                <form id="contactForm">
+                    <div class="row justify-content-center mb-5">
+                        <div class="col-md-8">
+                            <div class="form-group">
+                                <input class="form-control" name="name" id="name" type="name" placeholder="Your Name *" required="required" />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" name="email" id="email" type="email" placeholder="Your Email *" required="required" />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="form-group form-group-textarea">
+                                <textarea class="form-control" name="message" id="message" type="email" placeholder="Your Message *" required="required"></textarea>
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="text-center"><button class="btn btn-primary btn-xl text-uppercase" id="submitButton" type="submit">Send Message</button></div>
+                        </div>
+                        
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- Footer-->
+        <footer class="button-footer py-4 fixed-bottom">
+            <div class="flex-column">
+                <div class="row align-items-center">
+                    <div class="my-3 my-lg-0 text-center">
+                        <a class="btn btn-primary btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-primary btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-primary btn-social mx-2" href="#!"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <footer class="footer">
+            <div class="row align-items-center">
+                <div class="footer-info col-lg text-lg-start text-light">
+                    <h5>Address</h5>
+                    <h6 class="text-muted">1234 5th St.</h6>
+                    <h6 class="text-muted">Example, CA 11111</h6>
+                </div>
+                <div class="footer-info col-lg text-lg-end text-light">
+                    <h5>Contact Information</h5>
+                    <h6 class="text-muted">head@site.com</h6>
+                    <h6 class="text-muted">+111 11111111</h6>
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-lg text-lg-start text-muted">
+                    Copyright &copy; Niilo Pelkonen
+                    <!-- This script automatically adds the current year to your website footer-->
+                    <!-- (credit: https://updateyourfooter.com/)-->
+                    <script>
+                        document.write(new Date().getFullYear());
+                    </script>
+                </div>
+                <div class="col-lg text-lg-end text-muted">
+                    <a class="link-light text-decoration-none me-3" href="#!">Privacy Policy</a>
+                    <a class="link-light text-decoration-none" href="#!">Terms of Use</a>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Gallery Modals-->
+        <!-- Portfolio item 1 modal popup-->
+        <div class="gallery-modal modal fade" id="galleryModal1" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                    <div class="container">
+                        <div class="row justify-content-end">
+                                <div class="close-modal" data-bs-dismiss="modal"><i class="fas fa-times fa-inverse"></i></div>
+                                <img class="img-fluid mx-auto" src="assets/img/gal_1.jpg" alt="..." />
+                        </div>
+                    </div>
+            </div>
+        </div>
+        <div class="gallery-modal modal fade" id="galleryModal2" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                    <div class="container">
+                        <div class="row justify-content-end">
+                                <div class="close-modal" data-bs-dismiss="modal"><i class="fas fa-times fa-inverse"></i></div>
+                                <img class="img-fluid mx-auto" src="assets/img/gal_2.jpg" alt="..." />
+                        </div>
+                    </div>
+            </div>
+        </div>
+        <div class="gallery-modal modal fade" id="galleryModal3" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                    <div class="container">
+                        <div class="row justify-content-end">
+                                <div class="close-modal" data-bs-dismiss="modal"><i class="fas fa-times fa-inverse"></i></div>
+                                <img class="img-fluid mx-auto" src="assets/img/gal_3.jpg" alt="..." />
+                        </div>
+                    </div>
+            </div>
+        </div>
+        <div class="gallery-modal modal fade" id="galleryModal4" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                    <div class="container">
+                        <div class="row justify-content-end">
+                                <div class="close-modal" data-bs-dismiss="modal"><i class="fas fa-times fa-inverse"></i></div>
+                                <img class="img-fluid mx-auto" src="assets/img/gal_4.jpg" alt="..." />
+                        </div>
+                    </div>
+            </div>
+        </div>
+        <div class="gallery-modal modal fade" id="galleryModal5" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                    <div class="container">
+                        <div class="row justify-content-end">
+                                <div class="close-modal" data-bs-dismiss="modal"><i class="fas fa-times fa-inverse"></i></div>
+                                <img class="img-fluid mx-auto" src="assets/img/gal_5.jpg" alt="..." />
+                        </div>
+                    </div>
+            </div>
+        </div>
+
+        <!-- Bootstrap JS-->
+        <script src="js/bootstrap.js"></script>
+        <!-- Core JS-->
+        <script src="js/scripts.js"></script>
+    </body>
+</html>
