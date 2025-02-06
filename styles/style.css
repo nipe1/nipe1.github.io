@@ -1,0 +1,203 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'IBM Plex Mono', sans-serif;
+    background: linear-gradient(180deg, #167ea0 0%, #15a9da 100%);
+    height: 200vh;
+    width: 100vw;
+}
+
+.container {
+    position: absolute;
+    height: 200vh;
+    width: 100%;
+}
+
+.flip {
+    transform: scaleX(-1);
+}
+
+/* ---------------------------------- */
+/* ... EDGE GRADIENT ... */
+/* ---------------------------------- */
+
+@keyframes pull-edge-gradient {
+    from {opacity: 0;}
+    to {opacity: 20%;}
+}
+
+.edge-gradient {
+    position: fixed;
+    left: 0;
+    top: 0;
+    opacity: 20%;
+    height: 100vh;
+    width: 100vw;
+    background-image: radial-gradient(transparent 50%, black 100%);
+    animation-name: pull-edge-gradient;
+    animation-duration: 2s;
+}
+
+/* ---------------------------------- */
+/* ... CLOUDS ... */
+/* ---------------------------------- */
+.container-clouds {
+    display: flex;
+    height: 50%;
+}
+
+.cloud-grid {
+    display: grid;
+    height: 100%;
+    width: 100%;
+    padding: 2rem;
+    grid-template-areas:
+    '. one . . . . . . four . . .'
+    '. . . . . . . . . . five .'
+    '. . two . . . . . . . . .'
+    'three . . . . . . . . six . .';
+}
+
+@keyframes cloud-idle {
+    from { transform: none;}
+    to { transform: translateY(-2%);}
+}
+
+@keyframes cloud-appear {
+    from { opacity: 0;}
+}
+
+.anim {
+    animation: cloud-idle 1s ease-in-out alternate infinite;
+    animation-delay: 0;
+}
+
+.cloud {
+    opacity: 75%;
+    position: relative;
+    width: 10vw;
+    aspect-ratio : 5 / 3;
+    animation: cloud-appear 2s ease-out;
+}
+
+@keyframes cloud-upper {
+    from { transform: none;}
+    50% { transform: scale(107%, 107%);}
+    to { transform: none;}
+}
+
+@keyframes cloud-lower {
+    from { margin: 0;}
+    50% { margin-left: 0.1vw; margin-right: 0.1vw;}
+    to { margin: 0;}
+}
+
+.cloud:not(:hover) .ml,
+.cloud:not(:hover) .mr {
+    animation: cloud-upper 0.5s ease-in-out alternate;
+}
+
+.cloud:not(:hover) .l,
+.cloud:not(:hover) .r {
+    animation: cloud-lower 0.5s ease-in-out alternate;
+}
+
+.cloud div {
+    position: absolute;
+    height: 50%;
+    bottom: 0;
+    background-color: white;
+    border-radius: 50%;
+    aspect-ratio : 1 / 1;
+    box-shadow: 0.5vw 0.5vw lightblue;
+}
+
+.cloud .l {
+    left: 0;
+    margin-left: 0;
+    height: 50%;
+    transition: 0.2s;
+}
+
+.cloud .b {
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 70%;
+    border-radius: 0;
+}
+
+.cloud .r {
+    right: 0;
+    height: 50%;
+    transition: 0.2s;
+}
+
+.cloud .ml {
+    left: 17%;
+    bottom: 15%;
+    height: 65%;
+    transition: 0.1s;
+}
+
+.cloud .mr {
+    bottom: 20%;
+    right: 17%;
+    height: 75%;
+    transition: 0.2s;
+}
+
+.cloud .f {
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 70%;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+/* ---------------------------------- */
+/* ... FLAGPOLE ... */
+/* ---------------------------------- */
+
+.container-flagpole {
+    position: absolute;
+    width: 2vw;
+    height: 75%;
+    bottom: 0;
+    left: 50%;
+}
+
+.flagpole {
+    position: absolute;
+    height: 0;
+    width: 1.5vh;
+    left: 50%;
+    transform: translate(-50%, 0);
+    border-bottom: 150vh solid #202020;
+	border-left: 1.75vh solid transparent;
+	border-right: 1.75vh solid transparent;
+}
+
+.container-flagpole .gradient {
+    position: absolute;
+    height: 0;
+    width: 0.25vh;
+    left: 50%;
+    transform: translate(-50%, 0);
+    border-bottom: 150vh solid #3d3d3d;
+	border-left: .75vh solid transparent;
+	border-right: .75vh solid transparent;
+}
+
+.flagpole .top {
+    position: absolute;
+    width: 3vh;
+    aspect-ratio : 1 / 1;
+    border-radius: 50%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    background-color: #fddf9d;
+    top: -1vh;
+    z-index: 5;
+    box-shadow: inset -0.1vw -0.2vw #f7b321;
+}
