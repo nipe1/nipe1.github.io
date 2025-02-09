@@ -1,3 +1,9 @@
+:root {
+    --flag-color: #a15415;
+    --pole-color: #202020;
+    --ground-color: rgb(24, 121, 24);
+}
+
 html,
 body {
     margin: 0;
@@ -6,12 +12,14 @@ body {
     background: linear-gradient(180deg, #167ea0 0%, #15a9da 100%);
     height: 200vh;
     width: 100vw;
+    overflow-x: hidden;
 }
 
 .container {
     position: absolute;
     height: 200vh;
     width: 100%;
+    overflow: hidden;
 }
 
 .flip {
@@ -165,6 +173,7 @@ body {
     height: 75%;
     bottom: 0;
     left: 50%;
+    z-index: 2;
 }
 
 .flagpole {
@@ -173,7 +182,7 @@ body {
     width: 1.5vh;
     left: 50%;
     transform: translate(-50%, 0);
-    border-bottom: 150vh solid #202020;
+    border-bottom: 150vh solid var(--pole-color);
 	border-left: 1.75vh solid transparent;
 	border-right: 1.75vh solid transparent;
 }
@@ -187,6 +196,36 @@ body {
     border-bottom: 150vh solid #3d3d3d;
 	border-left: .75vh solid transparent;
 	border-right: .75vh solid transparent;
+}
+
+.container-flagpole:before {
+    position: absolute;
+    content: '';
+    width: 6vh;
+    height: 15vh;
+    bottom: 8vh;
+    left: 50%;
+    transform: translate(-50%, 0);
+    border-left: 7vh solid transparent;
+    border-right: 7vh solid transparent;
+    border-bottom: 10vh solid #313131;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.container-flagpole:after {
+    position: absolute;
+    content: '';
+    width: 14vh;
+    height: 25vh;
+    bottom: -2vh;
+    left: 50%;
+    transform: translate(-50%, 0);
+    border-left: 12vh solid transparent;
+    border-right: 12vh solid transparent;
+    border-bottom: 15vh solid var(--ground-color);
+    border-radius: 50%;
+    z-index: 1;
 }
 
 .flagpole .top {
@@ -209,7 +248,8 @@ body {
 
 @keyframes flag-leveler {
     from { transform: none;}
-    to { transform: translate(0, -17.5%);}
+    50% { transform: translate(0, -20%);}
+    to { transform: none;}
 }
 
 .flagpole .flag-container {
@@ -217,21 +257,22 @@ body {
     top: 3.5vh;
     left: 1vh;
     width: 30vh;
-    height: 19vh;
+    height: 20vh;
     overflow: hidden;
-    animation: flag-leveler 2s ease-in-out 0.8s alternate infinite;
-    animation-timing-function: cubic-bezier(0.25, 0, 0.75, 1);
+    animation: flag-leveler 4s ease-in-out 1s infinite;
+    animation-timing-function: cubic-bezier(0.2, 0, 0.8, 1);
 }
 
 .flagpole .test {
     position: absolute;
-    top: 3vh;
-    left: -1vh;
+    top: 3.5vh;
+    left: -3vh;
     width: 3vh;
     height: 19vh;
-    animation: flag-leveler 2s ease-in-out 0.8s alternate infinite;
-    animation-timing-function: cubic-bezier(0.25, 0, 0.75, 1);
+    animation: flag-leveler 4s ease-in-out 1s infinite;
+    animation-timing-function: cubic-bezier(0.15, 0, 0.85, 1);
     background-color: red;
+    z-index: 6;
 }
 
 .flagpole .flag {
@@ -239,7 +280,7 @@ body {
     display: flex;
     align-items: center;
     width: 200%;
-    height: 100%;
+    height: 19vh;
     animation: flag-anim 4s linear infinite;
 }
 
@@ -255,7 +296,7 @@ body {
 
 .flagpole .flag .l:before {
     content: '';
-    background-image: radial-gradient(circle at 50% 100%, transparent 15vh, rgb(161, 84, 21) 15vh);
+    background-image: radial-gradient(circle at 50% 100%, transparent 15vh, var(--flag-color) 15vh);
     position: absolute;
     top: 15vh;
     width: 26%;
@@ -264,7 +305,7 @@ body {
 
 .flagpole .flag .l:after {
     content: '';
-    background-image: radial-gradient(circle at 50% 100%, rgb(161, 84, 21) 15vh, transparent 15vh);
+    background-image: radial-gradient(circle at 50% 100%, var(--flag-color) 15vh, transparent 15vh);
     position: absolute;
     top: 0;
     width: 26%;
@@ -273,7 +314,7 @@ body {
 
 .flagpole .flag .r:before {
     content: '';
-    background-image: radial-gradient(circle at 50% 0, transparent 15vh, rgb(161, 84, 21) 15vh);
+    background-image: radial-gradient(circle at 50% 0, transparent 15vh, var(--flag-color) 15vh);
     position: absolute;
     bottom: 15vh;
     width: 26%;
@@ -282,9 +323,29 @@ body {
 
 .flagpole .flag .r:after {
     content: '';
-    background-image: radial-gradient(circle at 50% 0, rgb(161, 84, 21) 15vh, transparent 15vh);
+    background-image: radial-gradient(circle at 50% 0, var(--flag-color) 15vh, transparent 15vh);
     position: absolute;
     bottom: 0;
     width: 26%;
     height: 15vh;
+}
+
+/* ---------------------------------- */
+/* ... GROUND ... */
+/* ---------------------------------- */
+
+.container-ground {
+    position: absolute;
+    width: 100%;
+    height: 12%;
+    bottom: 0;
+    overflow: hidden;
+}
+.ground {
+    width: 150%;
+    height: 200%;
+    background-image: radial-gradient(var(--ground-color) 50%, rgb(0, 78, 0) 90%);
+    border-radius: 50%;
+    margin-left: 50%;
+    transform: translateX(-50%);
 }
