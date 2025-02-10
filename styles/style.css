@@ -1,7 +1,7 @@
 :root {
-    --flag-color: #a15415;
+    --flag-color: #ff8561;
     --pole-color: #202020;
-    --ground-color: rgb(24, 121, 24);
+    --ground-color: #42693f;
 }
 
 html,
@@ -9,10 +9,20 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'IBM Plex Mono', sans-serif;
-    background: linear-gradient(180deg, #167ea0 0%, #15a9da 100%);
+    background: linear-gradient(180deg, #79b1fa 0%, #6da3d3 100%);
     height: 200vh;
     width: 100vw;
     overflow-x: hidden;
+}
+
+div {
+    position: absolute;
+}
+
+::before,
+::after {
+    position: absolute;
+    content: '';
 }
 
 .container {
@@ -51,6 +61,7 @@ body {
 /* ... CLOUDS ... */
 /* ---------------------------------- */
 .container-clouds {
+    position: relative;
     display: flex;
     height: 50%;
 }
@@ -84,7 +95,7 @@ body {
 .cloud {
     opacity: 75%;
     position: relative;
-    width: 10vw;
+    width: 20vh;
     aspect-ratio : 5 / 3;
     animation: cloud-appear 2s ease-out;
 }
@@ -97,7 +108,7 @@ body {
 
 @keyframes cloud-lower {
     from { margin: 0;}
-    50% { margin-left: 0.1vw; margin-right: 0.1vw;}
+    50% { margin-left: 0.2vh; margin-right: 0.2vh;}
     to { margin: 0;}
 }
 
@@ -112,13 +123,12 @@ body {
 }
 
 .cloud div {
-    position: absolute;
     height: 50%;
     bottom: 0;
     background-color: white;
     border-radius: 50%;
     aspect-ratio : 1 / 1;
-    box-shadow: 0.5vw 0.5vw lightblue;
+    box-shadow: 1vh 1vh lightblue;
 }
 
 .cloud .l {
@@ -168,7 +178,6 @@ body {
 /* ---------------------------------- */
 
 .container-flagpole {
-    position: absolute;
     width: 2vw;
     height: 75%;
     bottom: 0;
@@ -177,7 +186,6 @@ body {
 }
 
 .flagpole {
-    position: absolute;
     height: 0;
     width: 1.5vh;
     left: 50%;
@@ -188,7 +196,6 @@ body {
 }
 
 .container-flagpole .gradient {
-    position: absolute;
     height: 0;
     width: 0.25vh;
     left: 50%;
@@ -199,8 +206,6 @@ body {
 }
 
 .container-flagpole:before {
-    position: absolute;
-    content: '';
     width: 6vh;
     height: 15vh;
     bottom: 8vh;
@@ -214,8 +219,6 @@ body {
 }
 
 .container-flagpole:after {
-    position: absolute;
-    content: '';
     width: 14vh;
     height: 25vh;
     bottom: -2vh;
@@ -229,7 +232,6 @@ body {
 }
 
 .flagpole .top {
-    position: absolute;
     width: 3vh;
     aspect-ratio : 1 / 1;
     border-radius: 50%;
@@ -253,18 +255,16 @@ body {
 }
 
 .flagpole .flag-container {
-    position: absolute;
     top: 3.5vh;
     left: 1vh;
     width: 30vh;
     height: 20vh;
     overflow: hidden;
     animation: flag-leveler 4s ease-in-out 1s infinite;
-    animation-timing-function: cubic-bezier(0.2, 0, 0.8, 1);
+    animation-timing-function: cubic-bezier(0.25, 0, 0.75, 1);
 }
 
 .flagpole .test {
-    position: absolute;
     top: 3.5vh;
     left: -3vh;
     width: 3vh;
@@ -276,7 +276,6 @@ body {
 }
 
 .flagpole .flag {
-    position: absolute;
     display: flex;
     align-items: center;
     width: 200%;
@@ -284,50 +283,40 @@ body {
     animation: flag-anim 4s linear infinite;
 }
 
-.flagpole .flag .l {
-    width: 25%;
+.flagpole .flag .l,
+.flagpole .flag .r {
+    position: relative;
+    width: 100%;
     height: 100%;
 }
 
-.flagpole .flag .r {
-    width: 25%;
-    height: 100%;
+.flagpole .flag .l:before,
+.flagpole .flag .l:after,
+.flagpole .flag .r:before,
+.flagpole .flag .r:after {
+    background: var(--flag-color);
+    width: calc(100% + 2px);
+    height: 50%;
 }
 
 .flagpole .flag .l:before {
-    content: '';
-    background-image: radial-gradient(circle at 50% 100%, transparent 15vh, var(--flag-color) 15vh);
-    position: absolute;
-    top: 15vh;
-    width: 26%;
-    height: 15vh;
+    mask: radial-gradient(60% 3.5vh at bottom,#0000 calc(100% - 2px),#000);
+    bottom: -0.2vh;
 }
 
 .flagpole .flag .l:after {
-    content: '';
-    background-image: radial-gradient(circle at 50% 100%, var(--flag-color) 15vh, transparent 15vh);
-    position: absolute;
-    top: 0;
-    width: 26%;
-    height: 15vh;
+    clip-path: ellipse(85% 100% at 50% 100%);
+    top: 0.2vh;
 }
 
 .flagpole .flag .r:before {
-    content: '';
-    background-image: radial-gradient(circle at 50% 0, transparent 15vh, var(--flag-color) 15vh);
-    position: absolute;
-    bottom: 15vh;
-    width: 26%;
-    height: 15vh;
+    mask: radial-gradient(60% 3.5vh at top,#0000 calc(100% - 2px),#000);
+    top: 0;
 }
 
 .flagpole .flag .r:after {
-    content: '';
-    background-image: radial-gradient(circle at 50% 0, var(--flag-color) 15vh, transparent 15vh);
-    position: absolute;
+    clip-path: ellipse(85% 100% at 50% 0%);
     bottom: 0;
-    width: 26%;
-    height: 15vh;
 }
 
 /* ---------------------------------- */
@@ -335,17 +324,241 @@ body {
 /* ---------------------------------- */
 
 .container-ground {
-    position: absolute;
     width: 100%;
     height: 12%;
     bottom: 0;
     overflow: hidden;
 }
+
 .ground {
     width: 150%;
     height: 200%;
-    background-image: radial-gradient(var(--ground-color) 50%, rgb(0, 78, 0) 90%);
+    background-image: radial-gradient(var(--ground-color) 50%, #355530 90%);
     border-radius: 50%;
     margin-left: 50%;
     transform: translateX(-50%);
+}
+
+.boulder {
+    width: 60vh;
+    height: 50vh;
+    background-color: rgb(73, 65, 49);
+    right: 0vh;
+    bottom: 8vh;
+    z-index: 3;
+    clip-path: polygon(100% 10%,100% 100%,90% 98%,64% 97%,57% 100%,37% 98%,23% 100%,13% 90%,12% 85%,17% 70.7%,20% 50%,29% 37%,36% 16.7%,47% 6.7%,75% 0%,92% 5%);
+}
+
+/* ---------------------------------- */
+/* ... NIILO ... */
+/* ---------------------------------- */
+
+.container-niilo {
+    width: 30vh;
+    height: 35vh;
+    bottom: 13vh;
+    left: 25%;
+    z-index: 7;
+}
+
+.legs {
+    width: 100%;
+    height: 30%;
+    bottom: 0;
+}
+
+.legs .limb.l, 
+.legs .limb.r,
+.legs .limb.l::before,
+.legs .limb.r::before,
+.legs .limb.r::after {
+    width: 5vh;
+    border-radius: 3vh;
+    background-image: linear-gradient(to left, rgb(70, 37, 6), rgb(92, 49, 8));
+}
+
+.legs .limb.l {
+    bottom: 1.5vh;
+    left: 8vh;
+    height: 11vh;
+    transform: rotate(40deg);
+    z-index: 1;
+}
+
+.legs .limb.l::before {
+    height: 16vh;
+    bottom: -2.5vh;
+    left: 5vh;
+    transform: rotate(60deg);
+}
+
+.legs .limb.r {
+    bottom: 1vh;
+    right: 7vh;
+    height: 13vh;
+    transform: rotate(-70deg);
+}
+
+.legs .limb.r::before {
+    height: 16vh;
+    bottom: -1vh;
+    right: 3.5vh;
+    transform: rotate(-35deg);
+    border-radius: 2vh;
+}
+
+.legs .limb.r::after {
+    height: 4vh;
+    bottom: 12vh;
+    right: -1vh;
+    transform: rotate(-20deg);
+    border-radius: 2vh;
+}
+
+@keyframes shoe-twist {
+    from { transform: rotate(35deg);}
+    91% { transform: rotate(35deg);}
+    94% { transform: rotate(30deg);}
+    97% { transform: rotate(35deg);}
+    to { transform: rotate(30deg);}
+}
+
+.shoe {
+    width: 7vh;
+    height: 3.5vh;
+    background-color: white;
+    border-radius: 45%;
+    box-shadow: 0.5vh -0.5vh rgb(134, 77, 3);
+}
+
+.shoe::after {
+    width: 3vh;
+    height: 1.5vh;
+    background-color: rgb(202, 202, 202);
+    border-radius: 0.5vh;
+    top: calc(50% - 0.75vh);
+    right: 2vh;
+}
+
+.shoe.l {
+    right: 3.5vh;
+    bottom: 2vh;
+    transform: rotate(35deg);
+    transform-origin: left;
+    animation: shoe-twist 5s ease-in-out alternate infinite;
+}
+
+.shoe.r {
+    left: 7vh;
+    bottom: 0;
+    box-shadow: -0.5vh 0.5vh rgb(134, 77, 3);
+    z-index: -1;
+    transform: rotate(-25deg);
+}
+
+.torso {
+    width: 8vh;
+    height: 12vh;
+    background-image: linear-gradient(to bottom, rgb(151, 151, 151), rgb(68, 68, 68));
+    left: 11vh;
+    bottom: 11vh;
+    border-radius: 2vh;
+    box-shadow: inset 1vh 0vh rgba(0, 0, 0, 0.089);
+}
+
+.torso::after {
+    width: 90%;
+    height: 100%;
+    right: 0;
+    background-color: rgb(199, 199, 199);
+    clip-path: polygon(5% 100%, 23% 0, 32% 84%, 50% 0, 59% 80%, 83% 0, 96% 100%, 81% 15%, 57% 100%, 49% 18%, 32% 100%, 20% 31%);
+}
+
+.torso .limb.l,
+.torso .limb.r {
+    width: 3.25vh;
+    background-image: linear-gradient(to left, rgb(151, 151, 151), rgb(119, 119, 119));
+    z-index: 2;
+    border-radius: 2vh;
+}
+
+.torso .limb.l::before,
+.torso .limb.r::before {
+    width: 3vh;
+    background-image: linear-gradient(to right, rgb(151, 151, 151), rgb(119, 119, 119));
+    border-radius: 2vh;
+}
+
+.torso .limb.l {
+    height: 11vh;
+    left: -3vh;
+    bottom: 2vh;
+    transform: rotate(30deg);
+}
+
+.torso .limb.l::before {
+    height: 9vh;
+    transform: rotate(95deg);
+    left: 3vh;
+    bottom: -3.5vh;
+}
+
+.torso .limb.l::after {
+    bottom: -2vh;
+    right: -7vh;
+    height: 4vh;
+    width: 2.5vh;
+    background-color: pink;
+    border-radius: 40%;
+    transform: rotate(110deg);
+    clip-path: polygon(21% 21%, 23% 37%, 26% 10%, 39% 0, 71% 0, 91% 6%, 96% 18%, 94% 55%, 100% 100%, 0 100%, 0 48%, 0 18%);
+}
+
+.torso .limb.r {
+    height: 10vh;
+    right: -4vh;
+    bottom: 3vh;
+    transform: rotate(150deg);
+}
+
+.torso .limb.r::before {
+    height: 9vh;
+    transform: rotate(-110deg);
+    right: -2.5vh;
+    top: -4vh;
+}
+
+.laptop {
+    bottom: 13vh;
+    left: 15vh;
+}
+
+.laptop .screen {
+    height: 7vh;
+    width: 10vh;
+    background-color: silver;
+    z-index: 4;
+    transform: skew(-20deg);
+    box-shadow: inset 0.2vh 0.2vh gray;
+    border-radius: 1vh;
+}
+
+.laptop .kb {
+    left: -3vh;
+    bottom: -7vh;
+    height: 4vh;
+    width: 10vh;
+    background-color: silver;
+    z-index: 1;
+    transform: skew(40deg);
+    box-shadow: inset 0.2vh -0.2vh gray;
+    border-radius: 1vh;
+}
+
+.laptop .kb::after {
+    top: 1vh;
+    left: 0.5vh;
+    height: 2vh;
+    width: 6vh;
+    background-color: gray;
 }
