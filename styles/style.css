@@ -345,8 +345,17 @@ div {
     background-color: rgb(73, 65, 49);
     right: 0vh;
     bottom: 8vh;
-    z-index: 3;
     clip-path: polygon(100% 10%,100% 100%,90% 98%,64% 97%,57% 100%,37% 98%,23% 100%,13% 90%,12% 85%,17% 70.7%,20% 50%,29% 37%,36% 16.7%,47% 6.7%,75% 0%,92% 5%);
+    z-index: 1;
+}
+
+.boulder.shadow {
+    width: 61vh;
+    height: 51vh;
+    background-color: rgb(61, 54, 40);
+    right: 0vh;
+    bottom: 9vh;
+    z-index: 0;
 }
 
 /* ---------------------------------- */
@@ -359,6 +368,16 @@ div {
     bottom: 13vh;
     left: 25%;
     z-index: 7;
+}
+
+.container-niilo .shadow {
+    width: 100%;
+    height: 30%;
+    bottom: -7%;
+    left: 2vh;
+    background-image: radial-gradient(black, transparent 60%);
+    border-radius: 50%;
+    z-index: -2;
 }
 
 .legs {
