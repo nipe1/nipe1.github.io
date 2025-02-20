@@ -181,6 +181,15 @@ div {
 /* ... FLAGPOLE ... */
 /* ---------------------------------- */
 
+.container-flagpole .gradient,
+.container-flagpole:before,
+.container-flagpole:after,
+.flagpole .top,
+.flagpole {
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
 .container-flagpole {
     width: 2vw;
     height: 75%;
@@ -192,8 +201,6 @@ div {
 .flagpole {
     height: 0;
     width: 1.5vh;
-    left: 50%;
-    transform: translate(-50%, 0);
     border-bottom: 150vh solid var(--pole-color);
 	border-left: 1.75vh solid transparent;
 	border-right: 1.75vh solid transparent;
@@ -202,8 +209,6 @@ div {
 .container-flagpole .gradient {
     height: 0;
     width: 0.25vh;
-    left: 50%;
-    transform: translate(-50%, 0);
     border-bottom: 150vh solid #3d3d3d;
 	border-left: .75vh solid transparent;
 	border-right: .75vh solid transparent;
@@ -213,8 +218,6 @@ div {
     width: 6vh;
     height: 15vh;
     bottom: 8vh;
-    left: 50%;
-    transform: translate(-50%, 0);
     border-left: 7vh solid transparent;
     border-right: 7vh solid transparent;
     border-bottom: 10vh solid #313131;
@@ -226,8 +229,6 @@ div {
     width: 14vh;
     height: 25vh;
     bottom: -2vh;
-    left: 50%;
-    transform: translate(-50%, 0);
     border-left: 12vh solid transparent;
     border-right: 12vh solid transparent;
     border-bottom: 15vh solid var(--ground-color);
@@ -239,8 +240,6 @@ div {
     width: 3vh;
     aspect-ratio : 1 / 1;
     border-radius: 50%;
-    left: 50%;
-    transform: translate(-50%, 0);
     background-color: #fddf9d;
     top: -1vh;
     z-index: 5;
@@ -273,7 +272,7 @@ div {
     top: 3.5vh;
     left: -3vh;
     width: 3vh;
-    height: 19vh;
+    height: calc(var(--flag-width) * (2/3));
     animation: flag-leveler 3s ease-in-out infinite;
     animation-timing-function: cubic-bezier(0.15, 0, 0.85, 1);
     background-color: red;
@@ -286,7 +285,7 @@ div {
     align-items: center;
     width: 200%;
     right: 0;
-    height: 19vh;
+    height: calc(var(--flag-width) * (2/3));
     animation: flag-anim 6s linear infinite;
 }
 
