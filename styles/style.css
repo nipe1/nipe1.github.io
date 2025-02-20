@@ -1,5 +1,6 @@
 :root {
     --flag-color: #ff8561;
+    --flag-color-darker: #c56649;
     --pole-color: #202020;
     --ground-color: #42693f;
     --skin-color: rgb(209, 175, 181);
@@ -248,23 +249,24 @@ div {
 
 @keyframes flag-anim {
     from { transform: none;}
-    to { transform: translate(-50%, 0);}
+    to { transform: translate(50%, 0);}
 }
 
 @keyframes flag-leveler {
     from { transform: none;}
-    50% { transform: translate(0, -20%);}
+    50% { transform: translate(0, -5%);}
     to { transform: none;}
 }
 
 .flagpole .flag-container {
+    --flag-width: 28vh;
     top: 3.5vh;
     left: 1vh;
-    width: 30vh;
-    height: 20vh;
+    width: var(--flag-width);
+    height: calc(var(--flag-width) * (2/3));
     overflow: hidden;
-    /*animation: flag-leveler 4s ease-in-out 1s infinite;
-    animation-timing-function: cubic-bezier(0.25, 0, 0.75, 1);*/
+    animation: flag-leveler 3s ease-in-out infinite;
+    animation-timing-function: cubic-bezier(0.25, 0, 0.75, 1);
 }
 
 .flagpole .test {
@@ -272,7 +274,7 @@ div {
     left: -3vh;
     width: 3vh;
     height: 19vh;
-    animation: flag-leveler 4s ease-in-out 1s infinite;
+    animation: flag-leveler 3s ease-in-out infinite;
     animation-timing-function: cubic-bezier(0.15, 0, 0.85, 1);
     background-color: red;
     z-index: 6;
@@ -283,61 +285,38 @@ div {
     flex-direction: column;
     align-items: center;
     width: 200%;
+    right: 0;
     height: 19vh;
-    animation: flag-anim 4s linear infinite;
+    animation: flag-anim 6s linear infinite;
 }
-/*
-.flagpole .flag .l,
-.flagpole .flag .r {
+
+.flagpole .flag .t {
     position: relative;
+    display: flex;
     width: 100%;
-    height: 100%;
-}
-
-.flagpole .flag .l:before,
-.flagpole .flag .l:after,
-.flagpole .flag .r:before,
-.flagpole .flag .r:after {
-    background-color: var(--flag-color);
-    width: calc(100% + 2px);
-    height: 100%;
-}*/
-/*
-.flagpole .flag .l:before {
-    mask: radial-gradient(60% 3.5vh at bottom,#0000 calc(100% - 2px),#000);
-    bottom: -0.2vh;
-}
-
-.flagpole .flag .l:after {
-    clip-path: ellipse(85% 100% at 50% 100%);
-    top: 0.2vh;
-}
-
-.flagpole .flag .r:before {
-    mask: radial-gradient(60% 3.5vh at top,#0000 calc(100% - 2px),#000);
-    top: 0;
-}
-
-.flagpole .flag .r:after {
-    clip-path: ellipse(85% 100% at 50% 0%);
-    bottom: 0;
-}*/
-
-.flagpole .flag .l {
-    position: relative;
-    width: 100%;
-    height: 100%;
+    height: 90%;
     top: 0;
     background-color: var(--flag-color);
-    clip-path: polygon(100% 100%, 0% 100% , 0.00% 10.53%, 2.00% 10.36%, 4.00% 9.88%, 6.00% 9.10%, 8.00% 8.08%, 10.00% 6.89%, 12.00% 5.59%, 14.00% 4.28%, 16.00% 3.02%, 18.00% 1.91%, 20.00% 1.01%, 22.00% 0.37%, 24.00% 0.04%, 26.00% 0.04%, 28.00% 0.37%, 30.00% 1.01%, 32.00% 1.91%, 34.00% 3.02%, 36.00% 4.28%, 38.00% 5.59%, 40.00% 6.89%, 42.00% 8.08%, 44.00% 9.10%, 46.00% 9.88%, 48.00% 10.36%, 50.00% 10.53%, 52.00% 10.36%, 54.00% 9.88%, 56.00% 9.10%, 58.00% 8.08%, 60.00% 6.89%, 62.00% 5.59%, 64.00% 4.28%, 66.00% 3.02%, 68.00% 1.91%, 70.00% 1.01%, 72.00% 0.37%, 74.00% 0.04%, 76.00% 0.04%, 78.00% 0.37%, 80.00% 1.01%, 82.00% 1.91%, 84.00% 3.02%, 86.00% 4.28%, 88.00% 5.59%, 90.00% 6.89%, 92.00% 8.08%, 94.00% 9.10%, 96.00% 9.88%, 98.00% 10.36%, 100.00% 10.53%);
+    clip-path: polygon(100% 100%, 0% 100% , 0.00% 0.00%, 2.00% 0.33%, 4.00% 1.22%, 6.00% 2.47%, 8.00% 3.75%, 10.00% 4.76%, 12.00% 5.24%, 14.00% 5.08%, 16.00% 4.31%, 18.00% 3.12%, 20.00% 1.82%, 22.00% 0.71%, 24.00% 0.08%, 26.00% 0.08%, 28.00% 0.71%, 30.00% 1.82%, 32.00% 3.12%, 34.00% 4.31%, 36.00% 5.08%, 38.00% 5.24%, 40.00% 4.76%, 42.00% 3.75%, 44.00% 2.47%, 46.00% 1.22%, 48.00% 0.33%, 50.00% 0.00%, 52.00% 0.33%, 54.00% 1.22%, 56.00% 2.47%, 58.00% 3.75%, 60.00% 4.76%, 62.00% 5.24%, 64.00% 5.08%, 66.00% 4.31%, 68.00% 3.12%, 70.00% 1.82%, 72.00% 0.71%, 74.00% 0.08%, 76.00% 0.08%, 78.00% 0.71%, 80.00% 1.82%, 82.00% 3.12%, 84.00% 4.31%, 86.00% 5.08%, 88.00% 5.24%, 90.00% 4.76%, 92.00% 3.75%, 94.00% 2.47%, 96.00% 1.22%, 98.00% 0.33%, 100.00% 0.00%);
 }
-.flagpole .flag .r {
+
+.flagpole .flag .b {
     position: relative;
+    display: flex;
     width: 100%;
-    height: 2vh;
+    height: calc((var(--flag-width)/30));
     bottom: 0;
     background-color: var(--flag-color);
-    clip-path: polygon(100% 0%, 0% 0% , 0.00% 100.00%, 2.00% 98.43%, 4.00% 93.82%, 6.00% 86.45%, 8.00% 76.79%, 10.00% 65.45%, 12.00% 53.14%, 14.00% 40.63%, 16.00% 28.71%, 18.00% 18.13%, 20.00% 9.55%, 22.00% 3.51%, 24.00% 0.39%, 26.00% 0.39%, 28.00% 3.51%, 30.00% 9.55%, 32.00% 18.13%, 34.00% 28.71%, 36.00% 40.63%, 38.00% 53.14%, 40.00% 65.45%, 42.00% 76.79%, 44.00% 86.45%, 46.00% 93.82%, 48.00% 98.43%, 50.00% 100.00%, 52.00% 98.43%, 54.00% 93.82%, 56.00% 86.45%, 58.00% 76.79%, 60.00% 65.45%, 62.00% 53.14%, 64.00% 40.63%, 66.00% 28.71%, 68.00% 18.13%, 70.00% 9.55%, 72.00% 3.51%, 74.00% 0.39%, 76.00% 0.39%, 78.00% 3.51%, 80.00% 9.55%, 82.00% 18.13%, 84.00% 28.71%, 86.00% 40.63%, 88.00% 53.14%, 90.00% 65.45%, 92.00% 76.79%, 94.00% 86.45%, 96.00% 93.82%, 98.00% 98.43%, 100.00% 100.00%);
+    clip-path: polygon(100% 0%, 0% 0% , 0.00% 0.00%, 2.00% 6.18%, 4.00% 23.21%, 6.00% 46.86%, 8.00% 71.29%, 10.00% 90.45%, 12.00% 99.61%, 14.00% 96.49%, 16.00% 81.87%, 18.00% 59.37%, 20.00% 34.55%, 22.00% 13.55%, 24.00% 1.57%, 26.00% 1.57%, 28.00% 13.55%, 30.00% 34.55%, 32.00% 59.37%, 34.00% 81.87%, 36.00% 96.49%, 38.00% 99.61%, 40.00% 90.45%, 42.00% 71.29%, 44.00% 46.86%, 46.00% 23.21%, 48.00% 6.18%, 50.00% 0.00%, 52.00% 6.18%, 54.00% 23.21%, 56.00% 46.86%, 58.00% 71.29%, 60.00% 90.45%, 62.00% 99.61%, 64.00% 96.49%, 66.00% 81.87%, 68.00% 59.37%, 70.00% 34.55%, 72.00% 13.55%, 74.00% 1.57%, 76.00% 1.57%, 78.00% 13.55%, 80.00% 34.55%, 82.00% 59.37%, 84.00% 81.87%, 86.00% 96.49%, 88.00% 99.61%, 90.00% 90.45%, 92.00% 71.29%, 94.00% 46.86%, 96.00% 23.21%, 98.00% 6.18%, 100.00% 0.00%);
+}
+
+.flagpole .flag .t .s,
+.flagpole .flag .b .s {
+    position: relative;
+    background-image: linear-gradient(to right, transparent, rgba(0, 0, 0, 0.171), transparent);
+    z-index: 2;
+    width: 25%;
+    height: 100%;
 }
 
 
