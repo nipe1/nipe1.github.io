@@ -4,7 +4,7 @@
     --pole-color: #202020;
     --ground-color: #42693f;
     --skin-color: rgb(209, 175, 181);
-    --skin-color-darker: rgb(180, 151, 156);
+    --skin-color-darker: rgb(194, 156, 162);
     --hair-color: rgb(102, 68, 6);
 }
 
@@ -17,10 +17,16 @@ body {
     height: 200vh;
     width: 100vw;
     overflow-x: hidden;
+    scroll-behavior: smooth;
 }
 
 div {
     position: absolute;
+}
+
+a.link {
+    position: absolute;
+    display: block;
 }
 
 ::before,
@@ -192,8 +198,8 @@ div {
 
 .container-flagpole {
     width: 2vw;
-    height: 75%;
-    bottom: 0;
+    height: 70%;
+    bottom: 15vh;
     left: 50%;
     z-index: 2;
 }
@@ -201,7 +207,7 @@ div {
 .flagpole {
     height: 0;
     width: 1.5vh;
-    border-bottom: 150vh solid var(--pole-color);
+    border-bottom: 140vh solid var(--pole-color);
 	border-left: 1.75vh solid transparent;
 	border-right: 1.75vh solid transparent;
 }
@@ -209,30 +215,18 @@ div {
 .container-flagpole .gradient {
     height: 0;
     width: 0.25vh;
-    border-bottom: 150vh solid #3d3d3d;
+    border-bottom: 140vh solid #3d3d3d;
 	border-left: .75vh solid transparent;
 	border-right: .75vh solid transparent;
 }
 
 .container-flagpole:before {
-    width: 6vh;
-    height: 15vh;
-    bottom: 8vh;
-    border-left: 7vh solid transparent;
-    border-right: 7vh solid transparent;
-    border-bottom: 10vh solid #313131;
-    border-radius: 50%;
-    z-index: 1;
-}
-
-.container-flagpole:after {
-    width: 14vh;
-    height: 25vh;
+    width: 10vh;
+    height: 10vh;
     bottom: -2vh;
-    border-left: 12vh solid transparent;
-    border-right: 12vh solid transparent;
-    border-bottom: 15vh solid var(--ground-color);
-    border-radius: 50%;
+    background-color: #313131;
+    background-image: linear-gradient(to top, #313131 -5%, #242424);
+    clip-path: polygon(87.5% 30%, 75% 10.61%, 62.5% 13.86%, 50% 15%, 37.5% 13.86%, 25% 10.61%, 12.5% 30%, 0% 75%, 12.5% 80.74%, 25% 85.61%, 37.5% 88.86%, 50% 90%, 62.5% 88.86%, 75% 85.61%, 87.5% 80.74%, 100% 75%);
     z-index: 1;
 }
 
@@ -323,11 +317,17 @@ div {
 /* ... GROUND ... */
 /* ---------------------------------- */
 
+#lowerhalf {
+    height: 50%;
+    bottom: 0;
+}
+
 .container-ground {
     width: 100%;
     height: 12%;
     bottom: 0;
     overflow: hidden;
+    z-index: 1;
 }
 
 .ground {
@@ -346,7 +346,7 @@ div {
     right: 0vh;
     bottom: 8vh;
     clip-path: polygon(100% 10%,100% 100%,90% 98%,64% 97%,57% 100%,37% 98%,23% 100%,13% 90%,12% 85%,17% 70.7%,20% 50%,29% 37%,36% 16.7%,47% 6.7%,75% 0%,92% 5%);
-    z-index: 1;
+    z-index: 2;
 }
 
 .boulder.shadow {
@@ -355,7 +355,7 @@ div {
     background-color: rgb(61, 54, 40);
     right: 0vh;
     bottom: 9vh;
-    z-index: 0;
+    z-index: 1;
 }
 
 /* ---------------------------------- */
@@ -816,4 +816,235 @@ div {
     z-index: 3;
     clip-path: polygon(0 0, 100% 0, 69% 100%, 25% 100%, 0 65%);
     animation: laptop-screen 2s linear alternate infinite;
+}
+
+/* ---------------------------------- */
+/* ... SKYLINE ... */
+/* ---------------------------------- */
+
+.container-bg {
+    height: 30%;
+    width: 100%;
+    bottom: 0;
+}
+
+.container-bg .water {
+    height: 50%;
+    width: 175%;
+    background-image: radial-gradient(rgb(63, 118, 182), rgb(105, 150, 202));
+    border-radius: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 9%;
+}
+
+.container-bg .container-skyline {
+    opacity: 0.6;
+    height: 50%;
+    width: 100%;
+    top: 0;
+}
+
+.container-bg .kiikeli {
+    background-image: radial-gradient(#55524eb2, #585450ad);
+    height: 7%;
+    width: 75%;
+    right: 5%;
+    bottom: 56%;
+    clip-path: polygon(0% 74%, 8% 85%, 17% 87%, 27% 88%, 36% 76%, 42% 70%, 52% 67%, 63% 67%, 74% 66%, 81% 72%, 90% 79%, 96% 79%, 100% 74%, 100% 57%, 91% 53%, 83% 51%, 70% 49%, 54% 49%, 41% 53%, 29% 55%, 14% 56%, 4% 62%);
+}
+
+.container-bg .shore-trees {
+    width: 75%;
+    height: 28%;
+    bottom: 17%;
+    right: 0;
+    display: flex;
+}
+
+.shore-trees .tree {
+    --tree-height: 4vw;
+    position: relative;
+    align-self: flex-end;
+    opacity: 0.9;
+    height: var(--tree-height);
+    width: calc(var(--tree-height)/2);
+    bottom: 0;
+    background-image: radial-gradient(at bottom, #3f853b 50%, var(--ground-color));
+    clip-path: polygon(57% 100%, 57% 71%, 76% 73%, 97% 72%, 95% 66%, 99% 64%, 97% 62%, 100% 57%, 96% 49%, 92% 45%, 93% 38%, 92% 31%, 87% 24%, 77% 18%, 79% 9%, 73% 7%, 63% 2%, 58% 0%, 35% 1%, 25% 9%, 25% 18%, 16% 24%, 7% 31%, 11% 38%, 4% 44%, 2% 52%, 1% 59%, 3% 66%, 1% 71%, 13% 75%, 29% 75%, 46% 71%, 46% 100%);
+}
+
+.shore-trees .tree::after {
+    width: 15%;
+    height: 26%;
+    bottom: 0;
+    left: 45%;
+    background-color: rgb(172, 172, 172);
+}
+
+.container-skyline .shoreline {
+    height: 50%;
+    width: 175%;
+    background-image: radial-gradient(#3d7c38, var(--ground-color));
+    border-radius: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -29%;
+}
+
+.container-skyline .church {
+    height: 30vh;
+    width: 25vh;
+    left: 10%;
+    top: 0;
+    background-color: rgb(199, 197, 163);
+    clip-path: polygon(11.5% 0%, 5.75% 14.5%, 2% 20%, 2% 28%, 0.75% 30%, 2% 32%, 2% 50%, 0% 52.5%, 0% 100%, 69.25% 100%, 68.75% 54%, 66.75% 52%, 55.25% 52%, 54% 50.5%, 52.25% 50.5%, 49.25% 45.25%, 43.75% 41.25%, 37.25% 40%, 31.25% 41.5%, 26.75% 46%, 24% 51%, 21.5% 48.5%, 21.25% 31.5%, 22.25% 29.5%, 21.25% 27.5%, 21% 19%, 17.25% 14.25%);
+}
+
+.container-skyline .church::before {
+    width: 10vh;
+    height: 6vh;
+    background-color: rgb(24, 16, 0);
+    border-bottom: 3px solid rgb(177, 177, 177);
+}
+
+.container-skyline .church::after {
+    width: 8vh;
+    height: 6vh;
+    left: 6vh;
+    top: 9.3vh;
+    background-color: rgb(90, 146, 132);
+    border-bottom: 3px solid rgb(39, 39, 39);
+}
+
+.container-skyline .theater {
+    height: 17%;
+    width: 15%;
+    left: 16.5%;
+    bottom: 27%;
+    background-color: rgb(120, 123, 133);
+}
+
+.container-skyline .theater::before {
+    height: 50%;
+    width: 70%;
+    bottom: -50%;
+    left: 5%;
+    background-color: rgb(114, 114, 114);
+    border-right: 3vw solid rgb(133, 133, 133);
+}
+
+.container-skyline .theater::after {
+    height: 100%;
+    width: 20%;
+    right: 0;
+    background-color: rgb(132, 135, 145);
+}
+
+.container-skyline .radisson {
+    height: 40%;
+    width: 10%;
+    top: 40%;
+    background-color: rgb(199, 199, 199);
+    clip-path: polygon(26% 0, 100% 5%, 100% 100%, 0 100%, 0 2%);
+}
+
+.container-skyline .radisson::before {
+    height: 100%;
+    width: 25%;
+    background-color: rgb(173, 173, 173);
+}
+
+.container-skyline .valkea {
+    height: 50%;
+    width: 6%;
+    top: 10%;
+    background-image: linear-gradient(to right, rgb(79, 81, 88) 49%, rgb(120, 123, 133) 50%);
+    right: 24%;
+    clip-path: polygon(37% 9%, 68% 9%, 68% 14%, 100% 18%, 100% 100%, 0 100%, 0 14%, 37% 14%);
+    border-right: 0.1vw solid rgb(194, 194, 194);
+}
+
+.container-skyline .valkea::before {
+    height: 97%;
+    width: 25%;
+    background-color: rgb(194, 194, 194);
+    border-left: 1vw solid rgb(56, 59, 70);
+    left: 27%;
+    bottom: 0;
+}
+
+.container-skyline .valkea::after {
+    height: 14%;
+    width: 100%;
+    background-color: rgb(223, 223, 223);
+}
+
+.container-skyline .background {
+    height: 100%;
+    width: 100%;
+    background-color: #8f8f8f;
+    clip-path: polygon(0% 56.4%, 11.42% 56.4%, 11.42% 62%, 15.67% 61.4%, 15.67% 55.6%, 21.83% 55.4%, 21.83% 44.2%, 26.33% 43.8%, 26.33% 54.6%, 31.25% 54.1%, 31.25% 40%, 36.08% 40%, 36.08% 52.4%, 39.83% 52.4%, 45.16% 52.2%, 47.92% 48.6%, 53% 45%, 53% 36%, 56% 36%, 56% 29%, 59% 31%, 59% 36%, 63% 36%, 65% 44%, 67% 44%, 69% 42%, 69% 36%, 73% 38%, 74% 42%, 78% 42%, 80% 39%, 81% 43%, 84% 43%, 84% 39%, 88% 39%, 88% 46%, 100% 46%, 100% 100%, 0% 100%);
+}
+
+.container-skyline .red-items {
+    height: 100%;
+    width: 100%;
+    clip-path: polygon(16.17% 100%, 16.17% 55.8%, 18.83% 53.2%, 21.5% 55.4%, 21.91% 85%, 39.83% 82.8%, 39.91% 52.8%, 42.58% 47.4%, 45.59% 52.2%, 45.75% 100%);
+    background-color: #5e2a00;
+}
+
+.container-skyline .shadows {
+    height: 100%;
+    width: 100%;
+    background-color: #222222;
+    clip-path: polygon(11.42% 62%, 17.5% 61.8%, 18.42% 57.6%, 19.5% 62.1%, 25.33% 58.4%, 33.41% 57.6%, 36.83% 53.2%, 39.83% 52.8%, 40.75% 58.6%, 45% 58.2%, 49.33% 53.4%, 55.17% 49.6%, 56.5% 46.8%, 57.75% 41.4%, 60.83% 41.4%, 60.83% 48.4%, 62% 48.4%, 62% 41.2%, 65.92% 41.2%, 67.58% 42.8%, 67.67% 49.2%, 72.67% 48.4%, 75.25% 54.4%, 78.58% 53.2%, 80.42% 49%, 82.17% 47.4%, 84% 43%, 84% 38.2%, 88% 37%, 88% 46%, 100% 46%, 100% 100%, 7.67% 100%);
+}
+
+.container-skyline .middle {
+    height: 100%;
+    width: 100%;
+    background-color: #acacac;
+    clip-path: polygon(7.5% 56.4%, 11.42% 56.4%, 11.42% 67.6%, 15.67% 67.4%, 22.84% 63.2%, 24.17% 54.6%, 24.17% 43.8%, 26.33% 43.8%, 26.33% 54.6%, 27.83% 57.8%, 30.92% 57.8%, 34.08% 53.7%, 34.08% 40%, 36.08% 40%, 36.08% 53.2%, 38.75% 55.2%, 40.41% 57.4%, 47.67% 60.6%, 51.58% 53%, 51.75% 44%, 55.92% 43.6%, 56.08% 47.6%, 59.58% 47.2%, 59.58% 54.8%, 67.08% 55.2%, 67.08% 47.2%, 70.92% 44.8%, 70.92% 52%, 76.58% 50.8%, 76.58% 45.6%, 80.33% 43.8%, 81.33% 49.4%, 84% 48.6%, 84% 41%, 88% 40.6%, 88% 48.4%, 100% 47.6%, 100% 100%, 7.5% 100%);
+}
+
+.container-skyline .foreground {
+    height: 100%;
+    width: 100%;
+    background-color: #c0c0c0;
+    clip-path: polygon(10.75% 72.4%, 16.5% 72.2%, 22.67% 71.2%, 27.83% 61.8%, 31.25% 61.8%, 31.33% 57.3%, 39.66% 57%, 39.67% 63.8%, 42.91% 64.2%, 42.92% 50.8%, 48.17% 54%, 48.16% 64.8%, 52.5% 64.8%, 52.5% 50%, 67% 50%, 67% 63.6%, 69.92% 63.2%, 69.92% 48%, 75.5% 47.6%, 75.5% 51.2%, 77.83% 51.4%, 77.83% 43.8%, 82.5% 43.8%, 83.67% 47%, 87.92% 46.2%, 88% 63.6%, 100% 63.6%, 100% 100%, 7.5% 100%);
+}
+
+.container-skyline .front-buildings {
+    width: 8%;
+    height: 20%;
+    right: 50%;
+    bottom: 15%;
+    background-color: rgb(218, 218, 218);
+}
+
+.container-skyline .front-buildings::before {
+    width: 150%;
+    height: 103%;
+    bottom: 0;
+    left: -150%;
+    background-color: rgb(212, 209, 166);
+}
+
+.container-skyline .front-buildings::after {
+    width: 250%;
+    height: 110%;
+    bottom: 0;
+    right: -250%;
+    background-color: rgb(95, 39, 39);
+    border-right: 2vw solid rgb(173, 173, 173);
+}
+
+.container-skyline .front-rooves {
+    width: 40%;
+    height: 17%;
+    left: 30%;
+    bottom: 22%;
+    background-color: rgb(44, 41, 41);
+    clip-path: polygon(0% 18%, 5% 18%, 9% 2%, 11% 16%, 19% 16%, 23% 4%, 26% 16%, 28.9% 18%, 31% 14%, 43.7% 11%, 49% 11%, 75% 10%, 78% 1%, 98% 1%, 100% 15%, 95% 24%, 93% 46%, 90.4% 29%, 87.5% 46%, 85% 30%, 81.9% 47%, 79% 31%, 76.6% 48%, 74% 32%, 71.1% 49%, 68.4% 33%, 65.6% 49%, 62.8% 33%, 60% 50%, 57.6% 33%, 55% 49%, 52.4% 35%, 49.7% 49%, 46% 28%, 43% 29%, 41.6% 22%, 40% 31%, 34% 31%, 32.3% 22%, 31% 30%, 30% 53%, 28.1% 54%, 25.5% 36%, 23.3% 55%, 21.2% 37%, 19% 54%, 18% 32%, 11% 33%, 11% 27%, 8.8% 12%, 5% 31%, 0% 31%);
 }
