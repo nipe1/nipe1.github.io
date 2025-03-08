@@ -312,52 +312,6 @@ a.link {
     height: 100%;
 }
 
-
-/* ---------------------------------- */
-/* ... GROUND ... */
-/* ---------------------------------- */
-
-#lowerhalf {
-    height: 50%;
-    bottom: 0;
-}
-
-.container-ground {
-    width: 100%;
-    height: 12%;
-    bottom: 0;
-    overflow: hidden;
-    z-index: 1;
-}
-
-.ground {
-    width: 150%;
-    height: 200%;
-    background-image: radial-gradient(var(--ground-color) 50%, #355530 90%);
-    border-radius: 50%;
-    margin-left: 50%;
-    transform: translateX(-50%);
-}
-
-.boulder {
-    width: 60vh;
-    height: 50vh;
-    background-color: rgb(73, 65, 49);
-    right: 0vh;
-    bottom: 8vh;
-    clip-path: polygon(100% 10%,100% 100%,90% 98%,64% 97%,57% 100%,37% 98%,23% 100%,13% 90%,12% 85%,17% 70.7%,20% 50%,29% 37%,36% 16.7%,47% 6.7%,75% 0%,92% 5%);
-    z-index: 2;
-}
-
-.boulder.shadow {
-    width: 61vh;
-    height: 51vh;
-    background-color: rgb(61, 54, 40);
-    right: 0vh;
-    bottom: 9vh;
-    z-index: 1;
-}
-
 /* ---------------------------------- */
 /* ... NIILO ... */
 /* ---------------------------------- */
@@ -1046,4 +1000,58 @@ a.link {
     bottom: 22%;
     background-color: rgb(44, 41, 41);
     clip-path: polygon(0% 18%, 5% 18%, 9% 2%, 11% 16%, 19% 16%, 23% 4%, 26% 16%, 28.9% 18%, 31% 14%, 43.7% 11%, 49% 11%, 75% 10%, 78% 1%, 98% 1%, 100% 15%, 95% 24%, 93% 46%, 90.4% 29%, 87.5% 46%, 85% 30%, 81.9% 47%, 79% 31%, 76.6% 48%, 74% 32%, 71.1% 49%, 68.4% 33%, 65.6% 49%, 62.8% 33%, 60% 50%, 57.6% 33%, 55% 49%, 52.4% 35%, 49.7% 49%, 46% 28%, 43% 29%, 41.6% 22%, 40% 31%, 34% 31%, 32.3% 22%, 31% 30%, 30% 53%, 28.1% 54%, 25.5% 36%, 23.3% 55%, 21.2% 37%, 19% 54%, 18% 32%, 11% 33%, 11% 27%, 8.8% 12%, 5% 31%, 0% 31%);
+}
+
+/* ---------------------------------- */
+/* ... GROUND ... */
+/* ---------------------------------- */
+
+#lowerhalf {
+    height: 50%;
+    bottom: 0;
+}
+
+.container-ground {
+    width: 100%;
+    height: 12%;
+    bottom: 0;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.ground {
+    width: 150%;
+    height: 200%;
+    background-image: radial-gradient(var(--ground-color) 50%, #355530 90%);
+    border-radius: 50%;
+    margin-left: 50%;
+    transform: translateX(-50%);
+}
+
+.boulder {
+    width: 60vh;
+    height: 50vh;
+    background-color: rgb(73, 65, 49);
+    right: 0vh;
+    bottom: 8vh;
+    clip-path: polygon(100% 10%,100% 100%,90% 98%,64% 97%,57% 100%,37% 98%,23% 100%,13% 90%,12% 85%,17% 70.7%,20% 50%,29% 37%,36% 16.7%,47% 6.7%,75% 0%,92% 5%);
+    z-index: 2;
+}
+
+.boulder.shadow {
+    width: 61vh;
+    height: 51vh;
+    background-color: rgb(61, 54, 40);
+    right: 0vh;
+    bottom: 9vh;
+    z-index: 1;
+}
+
+.boulder .hold {
+    width: 7vh;
+    height: 4vh;
+    background-color: #42693f;
+    left: 20vh;
+    top: 15vh;
+    clip-path: polygon(29% 25%, 69% 24%, 100% 0, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0 0);
 }
