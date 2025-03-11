@@ -8,6 +8,16 @@
     --hair-color: rgb(102, 68, 6);
 }
 
+&::-webkit-scrollbar:horizontal {
+    height: 0;
+    width: 0;
+    display: none;
+  }
+  
+  &::-webkit-scrollbar-thumb:horizontal {
+    display: none;
+  }
+
 html,
 body {
     margin: 0;
@@ -24,7 +34,7 @@ div {
     position: absolute;
 }
 
-a.link {
+a.button {
     position: absolute;
     display: block;
 }
@@ -40,10 +50,16 @@ a.link {
     height: 200vh;
     width: 100%;
     overflow: hidden;
+    will-change: transform;
 }
 
 .flip {
     transform: scaleX(-1);
+}
+
+@keyframes fade-in {
+    from {opacity: 0;}
+    to {opacity: 1;}
 }
 
 /* ---------------------------------- */
@@ -65,6 +81,80 @@ a.link {
     background-image: radial-gradient(transparent 50%, black 100%);
     animation-name: pull-edge-gradient;
     animation-duration: 2s;
+}
+
+/* ---------------------------------- */
+/* ... UI ELEMENTS ... */
+/* ---------------------------------- */
+
+.sticking-container {
+    width: 100%;
+    height: 150vh;
+    pointer-events: none;
+}
+
+@keyframes pull-header {
+    from {transform: translateY(-150%);}
+    to {transform: translateY(0);}
+}
+
+.header-text {
+    text-align: center;
+    margin-bottom: 0.2vh;
+    margin-top: 1vh;
+    color: white;
+    letter-spacing: 0.5vw;
+    cursor: default;
+    white-space: nowrap;
+    animation: pull-header 1s ease-in-out;
+}
+
+.header::after {
+    opacity: 0;
+    width: 100%;
+    height: 3px;
+    background-color: white;
+    margin-left: 50%;
+    transform:translateX(-50%);
+    left: 0;
+    top: -3px;
+    animation: fade-in 1s 1s ease-in-out forwards;
+}
+
+.header {
+    position: sticky;
+    width: 25%;
+    display: flex;
+    justify-content: space-evenly;
+    top: 0;
+    padding-top: 1vh;
+    margin-top: 3px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    pointer-events: all;
+    transition: ease-in-out 0.5s;
+}
+
+.header a {
+    opacity: 0;
+    font-weight: bolder;
+    font-size: x-large;
+    color: white;
+    border: 3px solid white;
+    padding-left: 0.5vh;
+    padding-right: 0.5vh;
+    border-radius: 1vh;
+    animation: fade-in 1s ease-in-out forwards;
+    animation-delay: 1s;
+}
+
+.header .link {
+    transition: 0.3s;
+    text-decoration: none;
+}
+
+.header .link:hover {
+    transform: scale(110%);
 }
 
 /* ---------------------------------- */
