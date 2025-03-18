@@ -50,7 +50,6 @@ a.button {
     height: 200vh;
     width: 100%;
     overflow: hidden;
-    will-change: transform;
 }
 
 .flip {
@@ -511,6 +510,8 @@ a.button {
     transform: rotate(35deg);
     transform-origin: left;
     animation: shoe-twist 5s ease-in-out alternate infinite;
+    will-change: rotate;
+    transform-style: preserve-3d;
 }
 
 .shoe.r {
@@ -584,6 +585,8 @@ a.button {
     background-image: linear-gradient(to left, rgb(151, 151, 151), rgb(119, 119, 119));
     z-index: 2;
     border-radius: 2vh;
+    will-change: rotate;
+    transform-style: preserve-3d;
 }
 
 .torso .limb.l::before,
@@ -591,6 +594,8 @@ a.button {
     width: 3vh;
     background-image: linear-gradient(to right, rgb(151, 151, 151), rgb(119, 119, 119));
     border-radius: 2vh;
+    will-change: rotate;
+    transform-style: preserve-3d;
 }
 
 .torso .limb.l {
@@ -680,6 +685,7 @@ a.button {
     height: 8vh;
     transform-origin: left center;
     animation: head-nod 5s ease-in-out alternate infinite;
+    will-change: rotate;
 }
 
 .head .face {
