@@ -1125,21 +1125,37 @@ a.button {
 }
 
 .boulder {
-    width: 60vh;
+    width: 55vh;
     height: 50vh;
-    background-color: rgb(73, 65, 49);
+    background-color: rgb(97, 97, 97);
     right: 0vh;
     bottom: 8vh;
-    clip-path: polygon(100% 10%,100% 100%,90% 98%,64% 97%,57% 100%,37% 98%,23% 100%,13% 90%,12% 85%,17% 70.7%,20% 50%,29% 37%,36% 16.7%,47% 6.7%,75% 0%,92% 5%);
+    clip-path: polygon(100% 6%, 100% 26%, 100% 35%, 100% 70%, 100% 92%, 53% 100%, 13% 91%, 0 49%, 5% 19%, 36% 0);
     z-index: 2;
 }
 
-.boulder.shadow {
-    width: 61vh;
-    height: 51vh;
-    background-color: rgb(61, 54, 40);
-    right: 0vh;
-    bottom: 9vh;
+.boulder::before {
+    width: 100%;
+    height: 54%;
+    background-color: rgb(114, 114, 114);
+    clip-path: polygon(0 0, 100% 0, 0 100%);
+}
+
+.boulder::after {
+    width: 53%;
+    height: 84%;
+    bottom: 0;
+    background: linear-gradient(rgb(92, 92, 92) 70%, rgb(70, 70, 70));
+    clip-path: polygon(0 0, 63% 24%, 78% 83%, 100% 100%, 0 100%);
+}
+
+.boulder-shadow {
+    width: 75vh;
+    height: 25vh;
+    bottom: 2vh;
+    right: -15vh;
+    background-image: radial-gradient(black, transparent 60%);
+    border-radius: 50%;
     z-index: 1;
 }
 
@@ -1147,7 +1163,8 @@ a.button {
     width: 7vh;
     height: 4vh;
     background-color: #42693f;
-    left: 20vh;
-    top: 15vh;
+    left: 10vh;
+    top: 20vh;
     clip-path: polygon(29% 25%, 69% 24%, 100% 0, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0 0);
+    z-index: 3;
 }
