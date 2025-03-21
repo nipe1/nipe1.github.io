@@ -669,6 +669,8 @@ a.button {
     left: 2.7vh;
     border-radius: 1.5vh;
     transform: rotate(5deg);
+    will-change: rotate;
+    transform-style: preserve-3d;
 }
 
 @keyframes head-nod {
@@ -686,6 +688,7 @@ a.button {
     transform-origin: left center;
     animation: head-nod 5s ease-in-out alternate infinite;
     will-change: rotate;
+    transform-style: preserve-3d;
 }
 
 .head .face {
@@ -695,6 +698,8 @@ a.button {
     transform: rotate(5deg);
     clip-path: polygon(21% 20%, 36% 0, 82% 0, 92% 8%, 97% 33%, 94% 45%, 96% 60%, 90% 76%, 78% 100%, 52% 100%, 27% 84%, 17% 47%);
     z-index: 1;
+    will-change: rotate;
+    transform-style: preserve-3d;
 }
 
 .head .face::before {
@@ -703,6 +708,8 @@ a.button {
     width: 5vh;
     height: 1vh;
     transform: rotate(55deg);
+    will-change: rotate;
+    transform-style: preserve-3d;
     background-color: var(--skin-color-darker);
 }
 
