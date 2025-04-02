@@ -1167,11 +1167,11 @@ a.button {
 }
 
 .boulder .hold {
-    width: 7vh;
-    height: 4vh;
+    width: 6vh;
+    height: 7vh;
     background-color: #42693f;
     left: 10vh;
     top: 20vh;
-    clip-path: polygon(29% 25%, 69% 24%, 100% 0, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0 0);
+    clip-path: polygon(36% 0, 84% 30%, 100% 57%, 62% 100%, 40% 90%, 28% 69%, 0 47%, 0 27%);
     z-index: 3;
 }
