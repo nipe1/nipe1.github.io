@@ -1169,9 +1169,124 @@ a.button {
 .boulder .hold {
     width: 6vh;
     height: 7vh;
+    z-index: 3;
+}
+
+.boulder .hold.green {
     background-color: #42693f;
     left: 10vh;
     top: 20vh;
-    clip-path: polygon(36% 0, 84% 30%, 100% 57%, 62% 100%, 40% 90%, 28% 69%, 0 47%, 0 27%);
-    z-index: 3;
+    clip-path: polygon(32.63% 40.4%, 60.12% 44.15%, 84% 30%, 100% 57%, 62% 100%, 40% 90%, 28% 69%, 0% 47%, 0% 27%);
+}
+
+.boulder .hold.orange {
+    background-color: #a07f37;
+    left: 5vh;
+    bottom: 12vh;
+    clip-path: polygon(19.76% 45.87%, 49% 50.98%, 70.69% 47.67%, 86.99% 52.51%, 84.43% 78.4%, 66.7% 96.22%, 32.06% 96.22%, 17.42% 78.4%, 8.42% 57.17%);
+}
+
+.boulder .hold.blue {
+    background-color: #435783;
+    left: 25vh;
+    top: 17vh;
+    clip-path: polygon(28.44% 10.75%, 61.29% 5%, 51.63% 25.98%, 57.23% 44.54%, 84.43% 57.17%, 78.85% 80.88%, 56.95% 99.15%, 28.44% 96.22%, 6.33% 73.04%, 6.33% 36.64%);
+}
+
+.boulder .hold.white {
+    background-color: #999999;
+    left: 17vh;
+    top: 2vh;
+    clip-path: polygon(56.28% 18.04%, 51.47% 34.11%, 65.74% 42.92%, 92.78% 42.92%, 86.25% 69.15%, 44.57% 91.72%, 8.01% 77.54%, 8.01% 50.43%, 23.41% 28.12%);
+}
+
+.bicycle {
+    width: 30vh;
+    height: 25vh;
+    right: 35vh;
+    bottom: 12vh;
+    z-index: 2;
+    transform: rotate(5deg);
+}
+
+.bicycle .frame {
+    width: 85%;
+    height: 1.8vh;
+    top: 1vh;
+    right: 0;
+    background-color: #292929;
+}
+
+.bicycle .frame::after {
+    width: 100%;
+    height: 1.8vh;
+    top: 4.5vh;
+    left: 0;
+    background-color: #292929;
+    transform: rotate(15deg);
+}
+
+.bicycle .front {
+    display: flex;
+    width: 8vh;
+    height: 100%;
+    transform: rotate(5deg);
+    justify-content: center;
+}
+
+.handlebars {
+    width: 20vh;
+    height: 2.2vh;
+    bottom: 37vh;
+    right: 48.5vh;
+    background-color: #161616;
+    transform: rotate(10deg);
+    clip-path: polygon(70.71% 100%, 100% 70.71%, 100% 29.29%, 70.71% 58.58%, 29.29% 58.58%, 0% 29.29%, 0% 70.71%, 29.29% 100%);
+    z-index: 6;
+}
+
+.bicycle .front .fork {
+    top: 0;
+    width: 2vh;
+    height: 6vh;
+    background-color: #202020;
+    z-index: 1;
+}
+
+.bicycle .front .tire {
+    width: 4vh;
+    height: 15vh;
+    bottom: 0;
+    border-radius: 50%;
+    border: 2vh solid rgb(19, 19, 19);
+    background: radial-gradient(circle,rgb(102, 102, 102) 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+.bicycle .front .tire::before {
+    width: 1vh;
+    height: 12vh;
+    top: -3.5vh;
+    left: 0.1vh;
+    border-radius: 0.5vh;
+    background-color: #202020;
+}
+
+.bicycle .front .tire::after {
+    width: 1vh;
+    height: 12vh;
+    top: -3.5vh;
+    left: 2.9vh;
+    border-radius: 0.5vh;
+    background-color: #202020;
+    z-index: -1;
+}
+
+.bicycle-shadow {
+    width: 40vh;
+    height: 12vh;
+    bottom: -3vh;
+    right: 0vh;
+    background-image: radial-gradient(rgba(0, 0, 0, 0.349), transparent 60%);
+    border-radius: 50%;
+    z-index: 1;
 }
