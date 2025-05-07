@@ -1,90 +1,93 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link href="styles/style.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=IBM Plex Mono' rel='stylesheet'>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>nipe1's projects</title>
-    <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-family: Arial, sans-serif;
-            background-color: #282828;
-        }
-
-        a {
-          color: white
-        }
-
-        .title {
-          font-size: 3em;
-          -webkit-text-stroke: 1px white;
-          margin-bottom: 40px
-        }
-
-        .container {
-            text-align: center;
-        }
-
-        .button-container {
-            display: flex;
-            gap: 80px;
-            justify-content: center;
-        }
-
-        .button {
-            padding: 15px 25px;
-            width: 180px;
-            height: 80px;
-            background-color: #A83234;
-            color: white;
-            border: none;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .button:hover {
-            background-color: #7E3B3C;
-        }
-
-        .description {
-            margin-top: 10px;
-            color: white;
-            width: 180px;
-        }
-
-        .button-wrapper {
-            text-align: center;
-        }
-    </style>
 </head>
 <body>
-
+    <div class="edge-gradient"></div>
     <div class="container">
-        <h1 class="title">Projects:</h1>
-
-        <div class="button-container">
-            <div class="button-wrapper">
-                <a href="player/index.html"><button class="button" >Youtube music player</button></a>
-                <p class="description">Advanced shuffling, also doesn't pause after 30 minutes like the real player.</p>
-            </div>
-            <div class="button-wrapper">
-              <a href="sample_site/index.html"><button class="button" href="sample_site/index.html">Sample Site</button></a>
-                <p class="description">Sample website I made a few years back, actually ended up using a similar style on a client project:</p><a href="https://kutop.savonia.fi/">Project</a>
-            </div>
-            <div class="button-wrapper">
-              <a href="wordleFin/index.html"><button class="button" href="wordleFin/index.html">Wordle in Finnish</button></a>
-                <p class="description">Changed the words from original wordle to finnish</p>
+        <div class="container-clouds">
+            <div class="cloud-grid">
+                <div class="anim" style="animation-delay: -1s; grid-area: one;"><div class="cloud" style="width: 22vh;"><div class="l"></div><div class="ml"></div><div class="mr"></div><div class="b"></div><div class="r"></div><div class="f"></div></div></div>
+                <div class="anim" style="animation-delay: -0.7s; grid-area: two;"><div class="cloud" style="width: 16vh; opacity:65%"><div class="l"></div><div class="ml"></div><div class="mr"></div><div class="b"></div><div class="r"></div><div class="f"></div></div></div>
+                <div class="anim" style="animation-delay: -1.2s; grid-area: three;"><div class="cloud" style="width: 22vh; opacity:80%"><div class="l"></div><div class="ml"></div><div class="mr"></div><div class="b"></div><div class="r"></div><div class="f"></div></div></div>
+                <div class="anim" style="grid-area: four;"><div class="cloud flip"><div class="l"></div><div class="ml"></div><div class="mr"></div><div class="b"></div><div class="r"></div><div class="f"></div></div></div>
+                <div class="anim" style="animation-delay: -0.5s; grid-area: five;"><div class="cloud flip" style="width: 22vh; opacity:80%"><div class="l"></div><div class="ml"></div><div class="mr"></div><div class="b"></div><div class="r"></div><div class="f"></div></div></div>
+                <div class="anim" style="animation-delay: -0.3s; grid-area: six;"><div class="cloud flip" style="width: 18vh;"><div class="l"></div><div class="ml"></div><div class="mr"></div><div class="b"></div><div class="r"></div><div class="f"></div></div></div>
             </div>
         </div>
+        <div class="container-flagpole">
+            <div class="flagpole">
+                <div class="top"></div><div class="gradient"></div>
+                <a href="#lowerhalf" class="button flag-container">
+                    <div class="flag" style="top: 0.3vh; --flag-color: #69370e"><div class="t"></div><div class="b"></div></div>
+                    <div class="flag"><div class="t"><div class="s"></div><div class="s"></div><div class="s"></div><div class="s"></div></div><div class="b"><div class="s"></div><div class="s"></div><div class="s"></div><div class="s"></div></div></div>
+                </a>
+            </div>
+        </div>
+        <div class="container-ground"><div class="ground"></div></div>
+        <div class="bicycle"><div class="frame"></div><div class="front"><div class="fork"></div><div class="tire"></div></div><div class="bicycle-shadow"></div></div>
+        <div class="handlebars"></div>
+        <div class="boulder"><div class="hold green"></div><div class="hold orange"></div><div class="hold blue"></div><div class="hold white"></div></div><div class="boulder-shadow"></div>
+        <div class="container-niilo">
+            <div class="legs"><div class="limb l"></div><div class="limb r"></div><div class="shoe l"></div><div class="shoe r"></div></div>
+            <div class="torso"><div class="limb l"></div><div class="limb r"></div><div class="neck"></div></div>
+            <div class="head">
+                <div class="face"><div class="nose"></div><div class="mouth"></div><div class="eyes"></div><div class="brows"></div></div>
+                <div class="hair"></div>
+            </div>
+            <div class="laptop"><div class="screen"></div><div class="kb"></div><div class="light"></div></div>
+            <div class="shadow"></div>
+        </div>
+        <div id="lowerhalf"></div>
+        <div class="container-bg">
+            <div class="container-skyline">
+                <div class="church"></div>
+                <div class="radisson"></div>
+                <div class="valkea"></div>
+                <div class="red-items"></div>
+                <div class="background"></div>
+                <div class="shadows"></div>
+                <div class="middle"></div>
+                <div class="foreground"></div>
+                <div class="front-buildings"></div>
+                <div class="front-rooves"></div>
+                <div class="theater"></div>
+                <div class="shoreline"></div>
+                <div class="shore-trees">
+                    <div class="tree" style="--tree-height:3.9vw"></div>
+                    <div class="tree"></div>
+                    <div class="tree" style="--tree-height:3.8vw"></div>
+                    <div class="tree"></div>
+                    <div class="tree" style="--tree-height:4.1vw"></div>
+                    <div class="tree" style="--tree-height:3.2vw; margin-left: 10vw"></div>
+                    <div class="tree" style="--tree-height:3.1vw"></div>
+                    <div class="tree" style="--tree-height:3vw; margin-left: 10vw"></div>
+                    <div class="tree" style="--tree-height:3vw"></div>
+                    <div class="tree" style="--tree-height:2.9vw"></div>
+                    <div class="tree" style="--tree-height:3.1vw; margin-left: 10vw"></div>
+                    <div class="tree" style="--tree-height:3.2vw"></div>
+                    <div class="tree" style="--tree-height:3.1vw"></div>
+                    <div class="tree" style="--tree-height:3.3vw"></div>
+                </div>
+            </div>
+            <div class="water"></div>
+            <div class="kiikeli"></div>
+        </div>
     </div>
-
+    <h1 class="header-text">niilo pelkonen</h1>
+    <h1 class="header-text">(work in progress)</h1>
+    <div class="sticking-container">
+        <div class="header">
+            <a class="link" href="https://github.com/nipe1">github</a>
+            <a class="link" href="cv.html" style="animation-delay: 1.2s;">cv</a>
+            <a class="link" href="portfolio/index.html" style="animation-delay: 1.4s;">portfolio</a>
+        </div>
+    </div>
 </body>
-</html>
 </html>

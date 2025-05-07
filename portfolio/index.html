@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>nipe1's projects</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            background-color: #282828;
+        }
+
+        a {
+          color: white
+        }
+
+        .title {
+          font-size: 3em;
+          -webkit-text-stroke: 1px white;
+          margin-bottom: 40px
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        .button-container {
+            display: flex;
+            gap: 80px;
+            justify-content: center;
+        }
+
+        .button {
+            padding: 15px 25px;
+            width: 180px;
+            height: 80px;
+            background-color: #A83234;
+            color: white;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #7E3B3C;
+        }
+
+        .description {
+            margin-top: 10px;
+            color: white;
+            width: 180px;
+        }
+
+        .button-wrapper {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1 class="title">Projects:</h1>
+
+        <div class="button-container">
+            <div class="button-wrapper">
+                <a href="player/index.html"><button class="button" >Youtube music player</button></a>
+                <p class="description">Advanced shuffling, also doesn't pause after 30 minutes like the real player.</p>
+            </div>
+            <div class="button-wrapper">
+              <a href="sample_site/index.html"><button class="button" href="sample_site/index.html">Sample Site</button></a>
+                <p class="description">Sample website I made a few years back, actually ended up using a similar style on a client project:</p><a href="https://kutop.savonia.fi/">Project</a>
+            </div>
+            <div class="button-wrapper">
+              <a href="wordleFin/index.html"><button class="button" href="wordleFin/index.html">Wordle in Finnish</button></a>
+                <p class="description">Changed the words from original wordle to finnish</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+</html>

@@ -1,0 +1,1292 @@
+:root {
+    --flag-color: #ff8561;
+    --flag-color-darker: #c56649;
+    --pole-color: #202020;
+    --ground-color: #42693f;
+    --skin-color: rgb(209, 175, 181);
+    --skin-color-darker: rgb(194, 156, 162);
+    --hair-color: rgb(102, 68, 6);
+}
+
+&::-webkit-scrollbar:horizontal {
+    height: 0;
+    width: 0;
+    display: none;
+  }
+  
+  &::-webkit-scrollbar-thumb:horizontal {
+    display: none;
+  }
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'IBM Plex Mono', sans-serif;
+    background: linear-gradient(180deg, #79b1fa 0%, #6da3d3 100%);
+    height: 200vh;
+    width: 100vw;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+div {
+    position: absolute;
+}
+
+a.button {
+    position: absolute;
+    display: block;
+}
+
+::before,
+::after {
+    position: absolute;
+    content: '';
+}
+
+.container {
+    position: absolute;
+    height: 200vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+.flip {
+    transform: scaleX(-1);
+}
+
+@keyframes fade-in {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+/* ---------------------------------- */
+/* ... EDGE GRADIENT ... */
+/* ---------------------------------- */
+
+@keyframes pull-edge-gradient {
+    from {opacity: 0;}
+    to {opacity: 20%;}
+}
+
+.edge-gradient {
+    position: fixed;
+    left: 0;
+    top: 0;
+    opacity: 20%;
+    height: 100vh;
+    width: 100vw;
+    background-image: radial-gradient(transparent 50%, black 100%);
+    animation-name: pull-edge-gradient;
+    animation-duration: 2s;
+}
+
+/* ---------------------------------- */
+/* ... UI ELEMENTS ... */
+/* ---------------------------------- */
+
+.sticking-container {
+    width: 100%;
+    height: 150vh;
+    pointer-events: none;
+}
+
+@keyframes pull-header {
+    from {transform: translateY(-150%);}
+    to {transform: translateY(0);}
+}
+
+.header-text {
+    text-align: center;
+    margin-bottom: 0.2vh;
+    margin-top: 1vh;
+    color: white;
+    letter-spacing: 0.5vw;
+    cursor: default;
+    white-space: nowrap;
+    animation: pull-header 1s ease-in-out;
+}
+
+.header::after {
+    opacity: 0;
+    width: 100%;
+    height: 3px;
+    background-color: white;
+    margin-left: 50%;
+    transform:translateX(-50%);
+    left: 0;
+    top: -3px;
+    animation: fade-in 1s 1s ease-in-out forwards;
+}
+
+.header {
+    position: sticky;
+    width: 25%;
+    display: flex;
+    justify-content: space-evenly;
+    top: 0;
+    padding-top: 1vh;
+    margin-top: 3px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    pointer-events: all;
+    transition: ease-in-out 0.5s;
+}
+
+.header a {
+    opacity: 0;
+    font-weight: bolder;
+    font-size: x-large;
+    color: white;
+    border: 3px solid white;
+    padding-left: 0.5vh;
+    padding-right: 0.5vh;
+    border-radius: 1vh;
+    animation: fade-in 1s ease-in-out forwards;
+    animation-delay: 1s;
+}
+
+.header .link {
+    transition: 0.3s;
+    text-decoration: none;
+}
+
+.header .link:hover {
+    transform: scale(110%);
+}
+
+/* ---------------------------------- */
+/* ... CLOUDS ... */
+/* ---------------------------------- */
+.container-clouds {
+    position: relative;
+    display: flex;
+    height: 50%;
+}
+
+.cloud-grid {
+    display: grid;
+    height: 100%;
+    width: 100%;
+    padding: 2rem;
+    grid-template-areas:
+    '. one . . . . . . four . . .'
+    '. . . . . . . . . . five .'
+    '. . two . . . . . . . . .'
+    'three . . . . . . . . six . .';
+}
+
+@keyframes cloud-idle {
+    from { transform: none;}
+    to { transform: translateY(-2%);}
+}
+
+@keyframes cloud-appear {
+    from { opacity: 0;}
+}
+
+.anim {
+    animation: cloud-idle 1s ease-in-out alternate infinite;
+    animation-delay: 0;
+}
+
+.cloud {
+    opacity: 75%;
+    position: relative;
+    width: 20vh;
+    aspect-ratio : 5 / 3;
+    animation: cloud-appear 2s ease-out;
+}
+
+@keyframes cloud-upper {
+    from { transform: none;}
+    50% { transform: scale(107%, 107%);}
+    to { transform: none;}
+}
+
+@keyframes cloud-lower {
+    from { margin: 0;}
+    50% { margin-left: 0.2vh; margin-right: 0.2vh;}
+    to { margin: 0;}
+}
+
+.cloud:not(:hover) .ml,
+.cloud:not(:hover) .mr {
+    animation: cloud-upper 0.5s ease-in-out alternate;
+}
+
+.cloud:not(:hover) .l,
+.cloud:not(:hover) .r {
+    animation: cloud-lower 0.5s ease-in-out alternate;
+}
+
+.cloud div {
+    height: 50%;
+    bottom: 0;
+    background-color: white;
+    border-radius: 50%;
+    aspect-ratio : 1 / 1;
+    box-shadow: 1vh 1vh lightblue;
+}
+
+.cloud .l {
+    left: 0;
+    margin-left: 0;
+    height: 50%;
+    transition: 0.2s;
+}
+
+.cloud .b {
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 70%;
+    border-radius: 0;
+}
+
+.cloud .r {
+    right: 0;
+    height: 50%;
+    transition: 0.2s;
+}
+
+.cloud .ml {
+    left: 17%;
+    bottom: 15%;
+    height: 65%;
+    transition: 0.1s;
+}
+
+.cloud .mr {
+    bottom: 20%;
+    right: 17%;
+    height: 75%;
+    transition: 0.2s;
+}
+
+.cloud .f {
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 70%;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+/* ---------------------------------- */
+/* ... FLAGPOLE ... */
+/* ---------------------------------- */
+
+.container-flagpole .gradient,
+.container-flagpole:before,
+.container-flagpole:after,
+.flagpole .top,
+.flagpole {
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+.container-flagpole {
+    width: 2vw;
+    height: 70%;
+    bottom: 15vh;
+    left: 50%;
+    z-index: 2;
+}
+
+.flagpole {
+    height: 0;
+    width: 1.5vh;
+    border-bottom: 140vh solid var(--pole-color);
+	border-left: 1.75vh solid transparent;
+	border-right: 1.75vh solid transparent;
+}
+
+.container-flagpole .gradient {
+    height: 0;
+    width: 0.25vh;
+    border-bottom: 140vh solid #3d3d3d;
+	border-left: .75vh solid transparent;
+	border-right: .75vh solid transparent;
+}
+
+.container-flagpole:before {
+    width: 10vh;
+    height: 10vh;
+    bottom: -2vh;
+    background-color: #313131;
+    background-image: linear-gradient(to top, #313131 -5%, #242424);
+    clip-path: polygon(87.5% 30%, 75% 10.61%, 62.5% 13.86%, 50% 15%, 37.5% 13.86%, 25% 10.61%, 12.5% 30%, 0% 75%, 12.5% 80.74%, 25% 85.61%, 37.5% 88.86%, 50% 90%, 62.5% 88.86%, 75% 85.61%, 87.5% 80.74%, 100% 75%);
+    z-index: 1;
+}
+
+.flagpole .top {
+    width: 3vh;
+    aspect-ratio : 1 / 1;
+    border-radius: 50%;
+    background-color: #fddf9d;
+    top: -1vh;
+    z-index: 5;
+    box-shadow: inset -0.1vw -0.2vw #f7b321;
+}
+
+@keyframes flag-anim {
+    from { transform: none;}
+    to { transform: translate(50%, 0);}
+}
+
+@keyframes flag-leveler {
+    from { transform: none;}
+    50% { transform: translate(0, -5%);}
+    to { transform: none;}
+}
+
+.flagpole .flag-container {
+    --flag-width: 28vh;
+    top: 3.5vh;
+    left: 1vh;
+    width: var(--flag-width);
+    height: calc(var(--flag-width) * (2/3));
+    overflow: hidden;
+    animation: flag-leveler 3s ease-in-out infinite;
+    animation-timing-function: cubic-bezier(0.25, 0, 0.75, 1);
+}
+
+.flagpole .test {
+    top: 3.5vh;
+    left: -3vh;
+    width: 3vh;
+    height: calc(var(--flag-width) * (2/3));
+    animation: flag-leveler 3s ease-in-out infinite;
+    animation-timing-function: cubic-bezier(0.15, 0, 0.85, 1);
+    background-color: red;
+    z-index: 6;
+}
+
+.flagpole .flag {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 200%;
+    right: 0;
+    height: calc(var(--flag-width) * (2/3));
+    animation: flag-anim 6s linear infinite;
+}
+
+.flagpole .flag .t {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 90%;
+    top: 0;
+    background-color: var(--flag-color);
+    clip-path: polygon(100% 100%, 0% 100% , 0.00% 0.00%, 2.00% 0.33%, 4.00% 1.22%, 6.00% 2.47%, 8.00% 3.75%, 10.00% 4.76%, 12.00% 5.24%, 14.00% 5.08%, 16.00% 4.31%, 18.00% 3.12%, 20.00% 1.82%, 22.00% 0.71%, 24.00% 0.08%, 26.00% 0.08%, 28.00% 0.71%, 30.00% 1.82%, 32.00% 3.12%, 34.00% 4.31%, 36.00% 5.08%, 38.00% 5.24%, 40.00% 4.76%, 42.00% 3.75%, 44.00% 2.47%, 46.00% 1.22%, 48.00% 0.33%, 50.00% 0.00%, 52.00% 0.33%, 54.00% 1.22%, 56.00% 2.47%, 58.00% 3.75%, 60.00% 4.76%, 62.00% 5.24%, 64.00% 5.08%, 66.00% 4.31%, 68.00% 3.12%, 70.00% 1.82%, 72.00% 0.71%, 74.00% 0.08%, 76.00% 0.08%, 78.00% 0.71%, 80.00% 1.82%, 82.00% 3.12%, 84.00% 4.31%, 86.00% 5.08%, 88.00% 5.24%, 90.00% 4.76%, 92.00% 3.75%, 94.00% 2.47%, 96.00% 1.22%, 98.00% 0.33%, 100.00% 0.00%);
+}
+
+.flagpole .flag .b {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: calc((var(--flag-width)/30));
+    bottom: 0;
+    background-color: var(--flag-color);
+    clip-path: polygon(100% 0%, 0% 0% , 0.00% 0.00%, 2.00% 6.18%, 4.00% 23.21%, 6.00% 46.86%, 8.00% 71.29%, 10.00% 90.45%, 12.00% 99.61%, 14.00% 96.49%, 16.00% 81.87%, 18.00% 59.37%, 20.00% 34.55%, 22.00% 13.55%, 24.00% 1.57%, 26.00% 1.57%, 28.00% 13.55%, 30.00% 34.55%, 32.00% 59.37%, 34.00% 81.87%, 36.00% 96.49%, 38.00% 99.61%, 40.00% 90.45%, 42.00% 71.29%, 44.00% 46.86%, 46.00% 23.21%, 48.00% 6.18%, 50.00% 0.00%, 52.00% 6.18%, 54.00% 23.21%, 56.00% 46.86%, 58.00% 71.29%, 60.00% 90.45%, 62.00% 99.61%, 64.00% 96.49%, 66.00% 81.87%, 68.00% 59.37%, 70.00% 34.55%, 72.00% 13.55%, 74.00% 1.57%, 76.00% 1.57%, 78.00% 13.55%, 80.00% 34.55%, 82.00% 59.37%, 84.00% 81.87%, 86.00% 96.49%, 88.00% 99.61%, 90.00% 90.45%, 92.00% 71.29%, 94.00% 46.86%, 96.00% 23.21%, 98.00% 6.18%, 100.00% 0.00%);
+}
+
+.flagpole .flag .t .s,
+.flagpole .flag .b .s {
+    position: relative;
+    background-image: linear-gradient(to right, transparent, rgba(0, 0, 0, 0.171), transparent);
+    z-index: 2;
+    width: 25%;
+    height: 100%;
+}
+
+/* ---------------------------------- */
+/* ... NIILO ... */
+/* ---------------------------------- */
+
+.container-niilo {
+    width: 30vh;
+    height: 35vh;
+    bottom: 13vh;
+    left: 25%;
+    z-index: 7;
+}
+
+.container-niilo .shadow {
+    width: 100%;
+    height: 30%;
+    bottom: -7%;
+    left: 2vh;
+    background-image: radial-gradient(black, transparent 60%);
+    border-radius: 50%;
+    z-index: -2;
+}
+
+.legs {
+    width: 100%;
+    height: 30%;
+    bottom: 0;
+}
+
+.legs .limb.l, 
+.legs .limb.r,
+.legs .limb.l::before,
+.legs .limb.r::before,
+.legs .limb.r::after {
+    width: 5vh;
+    border-radius: 3vh;
+    background-image: linear-gradient(to left, rgb(70, 37, 6), rgb(92, 49, 8));
+}
+
+.legs .limb.l {
+    bottom: 1.5vh;
+    left: 8vh;
+    height: 11vh;
+    transform: rotate(40deg);
+    z-index: 1;
+}
+
+.legs .limb.l::before {
+    height: 16vh;
+    width: 4.5vh;
+    bottom: -3vh;
+    left: 5vh;
+    transform: rotate(60deg);
+}
+
+.legs .limb.r {
+    bottom: 1vh;
+    right: 7vh;
+    height: 13vh;
+    transform: rotate(-70deg);
+}
+
+.legs .limb.r::before {
+    height: 16vh;
+    width: 4.5vh;
+    bottom: -1vh;
+    right: 3.5vh;
+    transform: rotate(-35deg);
+    border-radius: 2vh;
+}
+
+.legs .limb.r::after {
+    height: 4vh;
+    bottom: 12vh;
+    right: -1vh;
+    transform: rotate(-20deg);
+    border-radius: 2vh;
+}
+
+@keyframes shoe-twist {
+    from { transform: rotate(35deg);}
+    91% { transform: rotate(35deg);}
+    94% { transform: rotate(30deg);}
+    97% { transform: rotate(35deg);}
+    to { transform: rotate(30deg);}
+}
+
+.shoe {
+    width: 7vh;
+    height: 3.25vh;
+    background-color: white;
+    border-radius: 45%;
+    box-shadow: 0.5vh -0.5vh rgb(134, 77, 3);
+}
+
+.shoe::after {
+    width: 3vh;
+    height: 1.5vh;
+    background-color: rgb(202, 202, 202);
+    border-radius: 0.5vh;
+    top: calc(50% - 0.75vh);
+    right: 2vh;
+}
+
+.shoe.l {
+    right: 3.5vh;
+    bottom: 2vh;
+    transform: rotate(35deg);
+    transform-origin: left;
+    animation: shoe-twist 5s ease-in-out alternate infinite;
+    will-change: rotate;
+    transform-style: preserve-3d;
+}
+
+.shoe.r {
+    left: 7vh;
+    bottom: 0;
+    box-shadow: -0.5vh 0.5vh rgb(134, 77, 3);
+    z-index: -1;
+    transform: rotate(-25deg);
+}
+
+.torso {
+    width: 8vh;
+    height: 12vh;
+    background-image: linear-gradient(to bottom, rgb(151, 151, 151), rgb(68, 68, 68));
+    left: 11.5vh;
+    bottom: 11vh;
+    border-radius: 2vh;
+    box-shadow: inset 1vh 0vh rgba(0, 0, 0, 0.089);
+}
+
+.torso::before {
+    width: 125%;
+    height: 25%;
+    left: -0.5vh;
+    top:-1vh;
+    border-radius: 50%;
+    background-image: linear-gradient(to bottom, rgb(119, 119, 119), rgb(151, 151, 151));
+}
+
+.torso::after {
+    width: 90%;
+    height: 90%;
+    bottom: 0;
+    right: 0;
+    background-color: rgb(199, 199, 199);
+    clip-path: polygon(5% 100%, 23% 0, 32% 84%, 50% 0, 59% 80%, 83% 0, 96% 100%, 81% 15%, 57% 100%, 49% 18%, 32% 100%, 20% 31%);
+}
+
+@keyframes left-arm-move {
+    from { transform: rotate(30deg);}
+    19% { transform: rotate(31deg);}
+    38% { transform: rotate(30deg);}
+    to { transform: rotate(30deg);}
+}
+
+@keyframes left-arm-twist {
+    from { transform: rotate(95deg);}
+    10% { transform: rotate(98deg);}
+    15% { transform: rotate(95deg);}
+    20% { transform: rotate(98deg);}
+    25% { transform: rotate(95deg);}
+    30% { transform: rotate(98deg);}
+    35% { transform: rotate(95deg);}
+    to { transform: rotate(95deg);}
+}
+
+@keyframes left-hand-twist {
+    from { transform: rotate(115deg);}
+    10% { transform: rotate(100deg);}
+    15% { transform: rotate(115deg);}
+    20% { transform: rotate(100deg);}
+    25% { transform: rotate(115deg);}
+    30% { transform: rotate(100deg);}
+    35% { transform: rotate(115deg);}
+    to { transform: rotate(115deg);}
+}
+
+.torso .limb.l,
+.torso .limb.r {
+    width: 3.25vh;
+    background-image: linear-gradient(to left, rgb(151, 151, 151), rgb(119, 119, 119));
+    z-index: 2;
+    border-radius: 2vh;
+    will-change: rotate;
+    transform-style: preserve-3d;
+}
+
+.torso .limb.l::before,
+.torso .limb.r::before {
+    width: 3vh;
+    background-image: linear-gradient(to right, rgb(151, 151, 151), rgb(119, 119, 119));
+    border-radius: 2vh;
+    will-change: rotate;
+    transform-style: preserve-3d;
+}
+
+.torso .limb.l {
+    height: 11vh;
+    left: -0.5vh;
+    bottom: 1vh;
+    transform: rotate(30deg);
+    transform-origin: top center;
+    animation: left-arm-move 3s ease-in-out alternate infinite;
+}
+
+.torso .limb.l::before {
+    height: 9vh;
+    transform: rotate(95deg);
+    transform-origin: 1vh 7vh;
+    left: 1.5vh;
+    bottom: -0.4vh;
+    animation: left-arm-twist 2.7s linear infinite;
+}
+
+.torso .limb.l::after {
+    bottom: -2vh;
+    right: -7vh;
+    height: 4vh;
+    width: 2.5vh;
+    background-image: linear-gradient(to bottom, var(--skin-color), var(--skin-color-darker));
+    border-radius: 40%;
+    transform: rotate(110deg);
+    animation: left-hand-twist 2.7s linear infinite;
+    clip-path: polygon(21% 21%, 23% 37%, 26% 10%, 39% 0, 71% 0, 91% 6%, 96% 18%, 94% 55%, 100% 100%, 0 100%, 0 48%, 0 18%);
+}
+
+@keyframes right-arm-move {
+    from { transform: rotate(150deg);}
+    20% { transform: rotate(152deg);}
+    40% { transform: rotate(150deg);}
+    to { transform: rotate(150deg);}
+}
+
+@keyframes right-arm-twist {
+    from { transform: rotate(-110deg);}
+    20% { transform: rotate(-108deg);}
+    40% { transform: rotate(-110deg);}
+    to { transform: rotate(-110deg);}
+}
+
+.torso .limb.r {
+    height: 10vh;
+    right: -1.5vh;
+    bottom: 12vh;
+    transform: rotate(150deg);
+    transform-origin: bottom center;
+    animation: right-arm-move 2.5s ease-in-out 0.2s alternate infinite;
+}
+
+.torso .limb.r::before {
+    height: 9vh;
+    transform: rotate(-110deg);
+    right: 0vh;
+    top: 0vh;
+    transform-origin: center 1.5vh;
+    animation: right-arm-twist 1s linear alternate infinite;
+}
+
+.torso .neck {
+    width: 3vh;
+    height: 4vh;
+    background-color: var(--skin-color);
+    filter: brightness(95%);
+    top: -3.5vh;
+    left: 2.7vh;
+    border-radius: 1.5vh;
+    transform: rotate(5deg);
+    will-change: rotate;
+    transform-style: preserve-3d;
+}
+
+@keyframes head-nod {
+    from { transform: rotate(0deg);}
+    10% { transform: rotate(2deg);}
+    20% { transform: rotate(0deg);}
+    to { transform: rotate(0deg);}
+}
+
+.head {
+    top: 4.3vh;
+    left: 12.5vh;
+    width: 7vh;
+    height: 8vh;
+    transform-origin: left center;
+    animation: head-nod 5s ease-in-out alternate infinite;
+    will-change: rotate;
+    transform-style: preserve-3d;
+}
+
+.head .face {
+    width: 7vh;
+    height: 7.5vh;
+    background-image: linear-gradient(to bottom, var(--skin-color), var(--skin-color-darker));
+    transform: rotate(5deg);
+    clip-path: polygon(21% 20%, 36% 0, 82% 0, 92% 8%, 97% 33%, 94% 45%, 96% 60%, 90% 76%, 78% 100%, 52% 100%, 27% 84%, 17% 47%);
+    z-index: 1;
+    will-change: rotate;
+    transform-style: preserve-3d;
+}
+
+.head .face::before {
+    bottom: 0;
+    left: 0vh;
+    width: 5vh;
+    height: 1vh;
+    transform: rotate(55deg);
+    will-change: rotate;
+    transform-style: preserve-3d;
+    background-color: var(--skin-color-darker);
+}
+
+.head .face::after {
+    top: 2.3vh;
+    right: 0;
+    width: 3.9vh;
+    height: 1.2vh;
+    transform: skew(-10deg);
+    background-color: var(--skin-color);
+    filter: brightness(93%);
+}
+
+.head .face .nose {
+    right: 1.25vh;
+    top: 2.75vh;
+    width: 1.3vh;
+    height: 2.5vh;
+    filter: brightness(95%);
+    background-image: linear-gradient(to top right, var(--skin-color-darker), var(--skin-color));
+    z-index: 2;
+    clip-path: polygon(34% 0, 76% 0, 100% 74%, 74% 100%, 29% 96%, 0 81%);
+}
+
+.head .face .mouth {
+    right: 0.9vh;
+    bottom: 1vh;
+    width: 2.75vh;
+    height: 0.8vh;
+    background-color: rgb(175, 133, 142);
+    clip-path: polygon(26% 20%, 83% 21%, 100% 41%, 87% 70%, 26% 71%, 0 0);
+    z-index: 2;
+}
+
+.head .face .eyes {
+    width: 3.5vh;
+    height: 0.5vh;
+    right: 0.3vh;
+    top: 3vh;
+    z-index: 1;
+    background-color: white;
+    clip-path: polygon(65% 51%, 86% 0, 100% 30%, 88% 100%, 72% 100%, 65% 61%, 36% 100%, 13% 100%, 0 26%, 33% 0);
+}
+
+.head .face .eyes::before {
+    width: 0.55vh;
+    height: 0.55vh;
+    left: 0.7vh;
+    top: 0.2vh;
+    background-color: rgb(0, 30, 49);
+    border-radius: 50%;
+    transition: 0.2s;
+}
+
+.head .face .eyes::after{
+    width: 0.55vh;
+    height: 0.55vh;
+    right: 0.35vh;
+    top: 0.2vh;
+    background-color: rgb(0, 30, 49);
+    border-radius: 50%;
+    transition: 0.2s;
+}
+
+.container-niilo:hover .head .face .eyes::before,
+.container-niilo:hover .head .face .eyes::after {
+    top: 0;
+}
+
+.container-niilo:hover .head .face .eyes::before {
+    left: 0.5vh;
+}
+
+.container-niilo:hover .head .face .eyes::after {
+    right: 0.45vh;
+}
+
+.head .face .brows {
+    width: 3.7vh;
+    height: 0.5vh;
+    right: 0vh;
+    top: 2.2vh;
+    z-index: 1;
+    background-color: var(--hair-color); 
+    clip-path: polygon(0 50%, 45% 45%, 39% 65%, 65% 65%, 61% 44%, 100% 58%, 100% 79%, 67% 73%, 66% 65%, 30% 65%, 11% 74%, 0% 85%);
+    transition: 0.2s;
+}
+
+.container-niilo:hover .head .face .brows {
+    transform: translateY(-20%);
+}
+
+.head .hair {  
+    width: 6vh;
+    height: 5.5vh;
+    right: 0;
+    top: -0.5vh;
+    background: linear-gradient(var(--hair-color), rgb(75, 50, 4));
+    clip-path: polygon(32% 3%, 73% 1%, 100% 22%, 97% 45%, 88% 33%, 73% 38%, 32% 36%, 20% 66%, 9% 100%, 2% 79%, 0 60%, 5% 21%);
+    z-index: 1;
+}
+
+.head .hair::after {
+    left: 0.2vh;
+    top: 3vh;
+    height: 2vh;
+    width: 1.2vh;
+    background-color: var(--skin-color);
+    clip-path: polygon(25% 0%, 72% 18%, 83% 100%, 28% 100%, 11% 81%, 0 21%);
+}
+
+.laptop {
+    bottom: 12.5vh;
+    left: 14.75vh;
+}
+
+.laptop .screen {
+    height: 7vh;
+    width: 10vh;
+    background-color: silver;
+    z-index: 4;
+    transform: skew(-20deg);
+    box-shadow: inset 0.2vh 0.2vh gray;
+    border-radius: 1vh;
+}
+
+.laptop .kb {
+    left: -3vh;
+    bottom: -7vh;
+    height: 4vh;
+    width: 10vh;
+    background-color: silver;
+    z-index: 1;
+    transform: skew(40deg);
+    box-shadow: inset 0.2vh -0.2vh gray;
+    border-radius: 1vh;
+}
+
+.laptop .kb::after {
+    top: 1vh;
+    left: 0.5vh;
+    height: 2vh;
+    width: 6vh;
+    background-color: gray;
+}
+
+@keyframes laptop-screen {
+    from { opacity: 50%;}
+    35% { opacity: 40%;}
+    70% { opacity: 65%;}
+    to { opacity: 45%;}
+}
+
+.laptop .light {
+    opacity: 50%;
+    width: 18vh;
+    height: 15vh;
+    background: radial-gradient(at bottom,rgb(236, 236, 205), transparent 70%);
+    top: -8vh;
+    right: -14vh;
+    z-index: 3;
+    clip-path: polygon(0 0, 100% 0, 69% 100%, 25% 100%, 0 65%);
+    animation: laptop-screen 2s linear alternate infinite;
+}
+
+/* ---------------------------------- */
+/* ... SKYLINE ... */
+/* ---------------------------------- */
+
+.container-bg {
+    height: 30%;
+    width: 100%;
+    bottom: 0;
+}
+
+.container-bg .water {
+    height: 50%;
+    width: 175%;
+    background-image: radial-gradient(rgb(63, 118, 182), rgb(105, 150, 202));
+    border-radius: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 9%;
+}
+
+.container-bg .container-skyline {
+    opacity: 0.6;
+    height: 50%;
+    width: 100%;
+    top: 0;
+}
+
+.container-bg .kiikeli {
+    background-image: radial-gradient(#696662, #6e6963);
+    height: 7%;
+    width: 75%;
+    right: 5%;
+    bottom: 56%;
+    clip-path: polygon(0% 74%, 8% 85%, 17% 87%, 27% 88%, 36% 76%, 42% 70%, 52% 67%, 63% 67%, 74% 66%, 81% 72%, 90% 79%, 96% 79%, 100% 74%, 100% 57%, 91% 53%, 83% 51%, 70% 49%, 54% 49%, 41% 53%, 29% 55%, 14% 56%, 4% 62%);
+}
+
+.container-bg .shore-trees {
+    width: 75%;
+    height: 28%;
+    bottom: 17%;
+    right: 0;
+    display: flex;
+}
+
+.shore-trees .tree {
+    --tree-height: 4vw;
+    position: relative;
+    align-self: flex-end;
+    opacity: 0.9;
+    height: var(--tree-height);
+    width: calc(var(--tree-height)/2);
+    bottom: 0;
+    background-image: radial-gradient(at bottom, #3f853b 50%, var(--ground-color));
+    clip-path: polygon(57% 100%, 57% 71%, 76% 73%, 97% 72%, 95% 66%, 99% 64%, 97% 62%, 100% 57%, 96% 49%, 92% 45%, 93% 38%, 92% 31%, 87% 24%, 77% 18%, 79% 9%, 73% 7%, 63% 2%, 58% 0%, 35% 1%, 25% 9%, 25% 18%, 16% 24%, 7% 31%, 11% 38%, 4% 44%, 2% 52%, 1% 59%, 3% 66%, 1% 71%, 13% 75%, 29% 75%, 46% 71%, 46% 100%);
+}
+
+.shore-trees .tree::after {
+    width: 15%;
+    height: 26%;
+    bottom: 0;
+    left: 45%;
+    background-color: rgb(172, 172, 172);
+}
+
+.container-skyline .shoreline {
+    height: 50%;
+    width: 175%;
+    background-image: radial-gradient(#3d7c38, var(--ground-color));
+    border-radius: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -29%;
+}
+
+.container-skyline .church {
+    height: 30vh;
+    width: 25vh;
+    left: 10%;
+    top: 0;
+    background-color: rgb(199, 197, 163);
+    clip-path: polygon(11.5% 0%, 5.75% 14.5%, 2% 20%, 2% 28%, 0.75% 30%, 2% 32%, 2% 50%, 0% 52.5%, 0% 100%, 69.25% 100%, 68.75% 54%, 66.75% 52%, 55.25% 52%, 54% 50.5%, 52.25% 50.5%, 49.25% 45.25%, 43.75% 41.25%, 37.25% 40%, 31.25% 41.5%, 26.75% 46%, 24% 51%, 21.5% 48.5%, 21.25% 31.5%, 22.25% 29.5%, 21.25% 27.5%, 21% 19%, 17.25% 14.25%);
+}
+
+.container-skyline .church::before {
+    width: 10vh;
+    height: 6vh;
+    background-color: rgb(24, 16, 0);
+    border-bottom: 3px solid rgb(177, 177, 177);
+}
+
+.container-skyline .church::after {
+    width: 8vh;
+    height: 6vh;
+    left: 6vh;
+    top: 9.3vh;
+    background-color: rgb(90, 146, 132);
+    border-bottom: 3px solid rgb(39, 39, 39);
+}
+
+.container-skyline .theater {
+    height: 17%;
+    width: 15%;
+    left: 16.5%;
+    bottom: 27%;
+    background-color: rgb(120, 123, 133);
+}
+
+.container-skyline .theater::before {
+    height: 50%;
+    width: 70%;
+    bottom: -50%;
+    left: 5%;
+    background-color: rgb(114, 114, 114);
+    border-right: 3vw solid rgb(133, 133, 133);
+}
+
+.container-skyline .theater::after {
+    height: 100%;
+    width: 20%;
+    right: 0;
+    background-color: rgb(132, 135, 145);
+}
+
+.container-skyline .radisson {
+    height: 40%;
+    width: 10%;
+    top: 40%;
+    background-color: rgb(199, 199, 199);
+    clip-path: polygon(26% 0, 100% 5%, 100% 100%, 0 100%, 0 2%);
+}
+
+.container-skyline .radisson::before {
+    height: 100%;
+    width: 25%;
+    background-color: rgb(173, 173, 173);
+}
+
+.container-skyline .valkea {
+    height: 50%;
+    width: 6%;
+    top: 10%;
+    background-image: linear-gradient(to right, rgb(79, 81, 88) 49%, rgb(120, 123, 133) 50%);
+    right: 24%;
+    clip-path: polygon(37% 9%, 68% 9%, 68% 14%, 100% 18%, 100% 100%, 0 100%, 0 14%, 37% 14%);
+    border-right: 0.1vw solid rgb(194, 194, 194);
+}
+
+.container-skyline .valkea::before {
+    height: 97%;
+    width: 25%;
+    background-color: rgb(194, 194, 194);
+    border-left: 1vw solid rgb(56, 59, 70);
+    left: 27%;
+    bottom: 0;
+}
+
+.container-skyline .valkea::after {
+    height: 14%;
+    width: 100%;
+    background-color: rgb(223, 223, 223);
+}
+
+.container-skyline .background {
+    height: 100%;
+    width: 100%;
+    background-color: #8f8f8f;
+    clip-path: polygon(0% 56.4%, 11.42% 56.4%, 11.42% 62%, 15.67% 61.4%, 15.67% 55.6%, 21.83% 55.4%, 21.83% 44.2%, 26.33% 43.8%, 26.33% 54.6%, 31.25% 54.1%, 31.25% 40%, 36.08% 40%, 36.08% 52.4%, 39.83% 52.4%, 45.16% 52.2%, 47.92% 48.6%, 53% 45%, 53% 36%, 56% 36%, 56% 29%, 59% 31%, 59% 36%, 63% 36%, 65% 44%, 67% 44%, 69% 42%, 69% 36%, 73% 38%, 74% 42%, 78% 42%, 80% 39%, 81% 43%, 84% 43%, 84% 39%, 88% 39%, 88% 46%, 100% 46%, 100% 100%, 0% 100%);
+}
+
+.container-skyline .red-items {
+    height: 100%;
+    width: 100%;
+    clip-path: polygon(16.17% 100%, 16.17% 55.8%, 18.83% 53.2%, 21.5% 55.4%, 21.91% 85%, 39.83% 82.8%, 39.91% 52.8%, 42.58% 47.4%, 45.59% 52.2%, 45.75% 100%);
+    background-color: #5e2a00;
+}
+
+.container-skyline .shadows {
+    height: 100%;
+    width: 100%;
+    background-color: #222222;
+    clip-path: polygon(11.42% 62%, 17.5% 61.8%, 18.42% 57.6%, 19.5% 62.1%, 25.33% 58.4%, 33.41% 57.6%, 36.83% 53.2%, 39.83% 52.8%, 40.75% 58.6%, 45% 58.2%, 49.33% 53.4%, 55.17% 49.6%, 56.5% 46.8%, 57.75% 41.4%, 60.83% 41.4%, 60.83% 48.4%, 62% 48.4%, 62% 41.2%, 65.92% 41.2%, 67.58% 42.8%, 67.67% 49.2%, 72.67% 48.4%, 75.25% 54.4%, 78.58% 53.2%, 80.42% 49%, 82.17% 47.4%, 84% 43%, 84% 38.2%, 88% 37%, 88% 46%, 100% 46%, 100% 100%, 7.67% 100%);
+}
+
+.container-skyline .middle {
+    height: 100%;
+    width: 100%;
+    background-color: #acacac;
+    clip-path: polygon(7.5% 56.4%, 11.42% 56.4%, 11.42% 67.6%, 15.67% 67.4%, 22.84% 63.2%, 24.17% 54.6%, 24.17% 43.8%, 26.33% 43.8%, 26.33% 54.6%, 27.83% 57.8%, 30.92% 57.8%, 34.08% 53.7%, 34.08% 40%, 36.08% 40%, 36.08% 53.2%, 38.75% 55.2%, 40.41% 57.4%, 47.67% 60.6%, 51.58% 53%, 51.75% 44%, 55.92% 43.6%, 56.08% 47.6%, 59.58% 47.2%, 59.58% 54.8%, 67.08% 55.2%, 67.08% 47.2%, 70.92% 44.8%, 70.92% 52%, 76.58% 50.8%, 76.58% 45.6%, 80.33% 43.8%, 81.33% 49.4%, 84% 48.6%, 84% 41%, 88% 40.6%, 88% 48.4%, 100% 47.6%, 100% 100%, 7.5% 100%);
+}
+
+.container-skyline .foreground {
+    height: 100%;
+    width: 100%;
+    background-color: #c0c0c0;
+    clip-path: polygon(10.75% 72.4%, 16.5% 72.2%, 22.67% 71.2%, 27.83% 61.8%, 31.25% 61.8%, 31.33% 57.3%, 39.66% 57%, 39.67% 63.8%, 42.91% 64.2%, 42.92% 50.8%, 48.17% 54%, 48.16% 64.8%, 52.5% 64.8%, 52.5% 50%, 67% 50%, 67% 63.6%, 69.92% 63.2%, 69.92% 48%, 75.5% 47.6%, 75.5% 51.2%, 77.83% 51.4%, 77.83% 43.8%, 82.5% 43.8%, 83.67% 47%, 87.92% 46.2%, 88% 63.6%, 100% 63.6%, 100% 100%, 7.5% 100%);
+}
+
+.container-skyline .front-buildings {
+    width: 8%;
+    height: 20%;
+    right: 50%;
+    bottom: 15%;
+    background-color: rgb(218, 218, 218);
+}
+
+.container-skyline .front-buildings::before {
+    width: 150%;
+    height: 103%;
+    bottom: 0;
+    left: -150%;
+    background-color: rgb(212, 209, 166);
+}
+
+.container-skyline .front-buildings::after {
+    width: 250%;
+    height: 110%;
+    bottom: 0;
+    right: -250%;
+    background-color: rgb(95, 39, 39);
+}
+
+.container-skyline .front-rooves {
+    width: 40%;
+    height: 17%;
+    left: 30%;
+    bottom: 22%;
+    background-color: rgb(44, 41, 41);
+    clip-path: polygon(0% 18%, 5% 18%, 9% 2%, 11% 16%, 19% 16%, 23% 4%, 26% 16%, 28.9% 18%, 31% 14%, 43.7% 11%, 49% 11%, 75% 10%, 78% 1%, 98% 1%, 100% 15%, 95% 24%, 93% 46%, 90.4% 29%, 87.5% 46%, 85% 30%, 81.9% 47%, 79% 31%, 76.6% 48%, 74% 32%, 71.1% 49%, 68.4% 33%, 65.6% 49%, 62.8% 33%, 60% 50%, 57.6% 33%, 55% 49%, 52.4% 35%, 49.7% 49%, 46% 28%, 43% 29%, 41.6% 22%, 40% 31%, 34% 31%, 32.3% 22%, 31% 30%, 30% 53%, 28.1% 54%, 25.5% 36%, 23.3% 55%, 21.2% 37%, 19% 54%, 18% 32%, 11% 33%, 11% 27%, 8.8% 12%, 5% 31%, 0% 31%);
+}
+
+/* ---------------------------------- */
+/* ... GROUND ... */
+/* ---------------------------------- */
+
+#lowerhalf {
+    height: 50%;
+    bottom: 0;
+}
+
+.container-ground {
+    width: 100%;
+    height: 12%;
+    bottom: 0;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.ground {
+    width: 150%;
+    height: 200%;
+    background-image: radial-gradient(var(--ground-color) 50%, #355530 90%);
+    border-radius: 50%;
+    margin-left: 50%;
+    transform: translateX(-50%);
+}
+
+.boulder {
+    width: 55vh;
+    height: 50vh;
+    background-color: rgb(97, 97, 97);
+    right: 0vh;
+    bottom: 8vh;
+    clip-path: polygon(100% 6%, 100% 26%, 100% 35%, 100% 70%, 100% 92%, 53% 100%, 13% 91%, 0 49%, 5% 19%, 36% 0);
+    z-index: 2;
+}
+
+.boulder::before {
+    width: 100%;
+    height: 54%;
+    background-color: rgb(114, 114, 114);
+    clip-path: polygon(0 0, 100% 0, 0 100%);
+}
+
+.boulder::after {
+    width: 53%;
+    height: 84%;
+    bottom: 0;
+    background: linear-gradient(rgb(92, 92, 92) 70%, rgb(70, 70, 70));
+    clip-path: polygon(0 0, 63% 24%, 78% 83%, 100% 100%, 0 100%);
+}
+
+.boulder-shadow {
+    width: 75vh;
+    height: 25vh;
+    bottom: 2vh;
+    right: -15vh;
+    background-image: radial-gradient(black, transparent 60%);
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.boulder .hold {
+    width: 6vh;
+    height: 7vh;
+    z-index: 3;
+}
+
+.boulder .hold.green {
+    background-color: #42693f;
+    left: 10vh;
+    top: 20vh;
+    clip-path: polygon(32.63% 40.4%, 60.12% 44.15%, 84% 30%, 100% 57%, 62% 100%, 40% 90%, 28% 69%, 0% 47%, 0% 27%);
+}
+
+.boulder .hold.orange {
+    background-color: #a07f37;
+    left: 5vh;
+    bottom: 12vh;
+    clip-path: polygon(19.76% 45.87%, 49% 50.98%, 70.69% 47.67%, 86.99% 52.51%, 84.43% 78.4%, 66.7% 96.22%, 32.06% 96.22%, 17.42% 78.4%, 8.42% 57.17%);
+}
+
+.boulder .hold.blue {
+    background-color: #435783;
+    left: 25vh;
+    top: 17vh;
+    clip-path: polygon(28.44% 10.75%, 61.29% 5%, 51.63% 25.98%, 57.23% 44.54%, 84.43% 57.17%, 78.85% 80.88%, 56.95% 99.15%, 28.44% 96.22%, 6.33% 73.04%, 6.33% 36.64%);
+}
+
+.boulder .hold.white {
+    background-color: #999999;
+    left: 17vh;
+    top: 2vh;
+    clip-path: polygon(56.28% 18.04%, 51.47% 34.11%, 65.74% 42.92%, 92.78% 42.92%, 86.25% 69.15%, 44.57% 91.72%, 8.01% 77.54%, 8.01% 50.43%, 23.41% 28.12%);
+}
+
+.bicycle {
+    width: 30vh;
+    height: 25vh;
+    right: 35vh;
+    bottom: 12vh;
+    z-index: 2;
+    transform: rotate(5deg);
+}
+
+.bicycle .frame {
+    width: 85%;
+    height: 1.8vh;
+    top: 1vh;
+    right: 0;
+    background-color: #292929;
+}
+
+.bicycle .frame::after {
+    width: 100%;
+    height: 1.8vh;
+    top: 4.5vh;
+    left: 0;
+    background-color: #292929;
+    transform: rotate(15deg);
+}
+
+.bicycle .front {
+    display: flex;
+    width: 8vh;
+    height: 100%;
+    transform: rotate(5deg);
+    justify-content: center;
+}
+
+.handlebars {
+    width: 20vh;
+    height: 2.2vh;
+    bottom: 37vh;
+    right: 48.5vh;
+    background-color: #161616;
+    transform: rotate(10deg);
+    clip-path: polygon(70.71% 100%, 100% 70.71%, 100% 29.29%, 70.71% 58.58%, 29.29% 58.58%, 0% 29.29%, 0% 70.71%, 29.29% 100%);
+    z-index: 6;
+}
+
+.bicycle .front .fork {
+    top: 0;
+    width: 2vh;
+    height: 6vh;
+    background-color: #202020;
+    z-index: 1;
+}
+
+.bicycle .front .tire {
+    width: 4vh;
+    height: 15vh;
+    bottom: 0;
+    border-radius: 50%;
+    border: 2vh solid rgb(19, 19, 19);
+    background: radial-gradient(circle,rgb(102, 102, 102) 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+.bicycle .front .tire::before {
+    width: 1vh;
+    height: 12vh;
+    top: -3.5vh;
+    left: 0.1vh;
+    border-radius: 0.5vh;
+    background-color: #202020;
+}
+
+.bicycle .front .tire::after {
+    width: 1vh;
+    height: 12vh;
+    top: -3.5vh;
+    left: 2.9vh;
+    border-radius: 0.5vh;
+    background-color: #202020;
+    z-index: -1;
+}
+
+.bicycle-shadow {
+    width: 40vh;
+    height: 12vh;
+    bottom: -3vh;
+    right: 0vh;
+    background-image: radial-gradient(rgba(0, 0, 0, 0.349), transparent 60%);
+    border-radius: 50%;
+    z-index: 1;
+}
